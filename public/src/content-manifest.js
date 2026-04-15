@@ -3,124 +3,154 @@ export const DEFAULT_STOP_ID = "welcome-center";
 
 export const LANGUAGES = {
   en: {
-    labels: { en: "English", zh: "English", es: "English" }
+    labels: { en: "English", zh: "英语", es: "Inglés" },
+    native: "English"
   },
   zh: {
-    labels: { en: "中文", zh: "中文", es: "中文" }
+    labels: { en: "Chinese", zh: "中文", es: "Chino" },
+    native: "中文"
   },
   es: {
-    labels: { en: "Español", zh: "Español", es: "Español" }
+    labels: { en: "Spanish", zh: "西班牙语", es: "Español" },
+    native: "Español"
   }
 };
 
 export const UI_TEXT = {
   en: {
-    selectLanguageHeading: "Select your language",
-    selectLanguageBody: "Choose a language to begin the CMU campus tour experience.",
-    prototypeLabel: "Prototype build",
-    languageLabel: "Language",
-    chooseStopLabel: "Tour stop",
-    onboardingTitle: "How this tour works",
-    onboardingBody: "Each stop includes image slides, audio playback, and a synchronized transcript. You can seek through the audio at any time, and the transcript will follow the current playback position.",
-    dontShowAgain: "Don’t show this again",
-    continueLabel: "Continue",
-    backLabel: "Back",
-    loadingLabel: "Loading stop content…",
-    mainIntroLabel: "Stop intro",
-    relatedStoriesTitle: "Related stories",
-    transcriptTitle: "Transcript",
-    audioTitle: "Audio",
-    imageSlidesTitle: "Image slides",
-    changeLanguage: "Change language",
-    resetOnboarding: "Reset onboarding",
-    backToIntro: "Back to stop intro",
-    introChip: "Intro",
-    stopMenuAria: "Campus tour stops",
-    storiesDescription: "Select a related story to open the same player layout with story-specific navigation.",
-    placeholderStoryNotice: "Placeholder story view: this currently reuses the stop’s intro media until custom story assets are added.",
-    placeholderTranscriptNotice: "Transcript placeholder: replace the current lyrics file with final copy for this language.",
-    previousSlide: "Previous slide",
-    nextSlide: "Next slide",
-    transcriptJumpHint: "Click a transcript line to jump to that point in the audio.",
-    currentViewLabel: "Current view",
-    stopIntroCardTitle: "Main intro",
-    stopIntroCardBody: "Return to the primary introduction for this stop.",
-    noStoriesLabel: "No related stories yet.",
-    playAnotherStory: "Open story",
+    guidedTourLabel: "Guided Tour",
+    selectLanguagePlaceholder: "Select a Language",
+    selectLanguageAria: "Select language",
+    nextLabel: "Next",
+    languageSettingLabel: "Language / 语言",
+    onboardingSlides: [
+      "Each tour stop offers an official introduction about the campus",
+      "Pause or skip the audio at any time",
+      "Hear from our students as you navigate between stops"
+    ],
+    loadingLabel: "Loading…",
     loadingErrorTitle: "We couldn’t load this stop.",
-    loadingErrorBody: "Please confirm the stop assets exist in public/content and try again."
+    loadingErrorBody: "Please confirm the stop assets exist and try again.",
+    unknownRouteLabel: "Unknown route.",
+    noImageLabel: "No image available",
+    noTranscriptLabel: "No transcript available",
+    backToIntro: "Back to Introduction",
+    mainIntroductionTitle: "Main Introduction",
+    mainIntroductionDescription: "Return to the official introduction for this tour stop.",
+    relatedStoriesTitle: "Related Student Stories",
+    relatedStoriesSubtitle: "Listen between stops and resting periods",
+    menuTitle: "MENU",
+    settingsTitle: "SETTINGS",
+    settingsAndPreferences: "Settings & Preferences",
+    changeLanguageScreen: "Back to language screen",
+    replayOnboarding: "Replay onboarding",
+    playPauseAria: "Play or pause",
+    seekBackwardAlt: "10 seconds back",
+    seekForwardAlt: "10 seconds forward",
+    previousStopAlt: "Previous stop",
+    nextStopAlt: "Next stop",
+    playAlt: "Play",
+    pauseAlt: "Pause",
+    menuAlt: "Menu",
+    closeMenuAlt: "Close Menu",
+    backToMenuAlt: "Back to Menu",
+    enlargeTranscriptAlt: "Enlarge transcript",
+    slideLabel: "Slide",
+    coulterHallAlt: "Coulter Hall Illustration",
+    cmuLogoAlt: "Carnegie Mellon University",
+    megaphoneAlt: "Megaphone",
+    pauseIllustrationAlt: "Pause",
+    studentStoryAlt: "Student story"
   },
   zh: {
-    selectLanguageHeading: "选择语言",
-    selectLanguageBody: "请选择一种语言，开始 CMU 校园导览体验。",
-    prototypeLabel: "原型版本",
-    languageLabel: "语言",
-    chooseStopLabel: "导览地点",
-    onboardingTitle: "导览使用说明",
-    onboardingBody: "每个地点都会显示图片轮播、音频播放和同步滚动字幕。你可以随时拖动音频进度，字幕会自动跳到对应位置。",
-    dontShowAgain: "下次不再显示",
-    continueLabel: "继续",
-    backLabel: "返回",
-    loadingLabel: "正在加载地点内容……",
-    mainIntroLabel: "地点主介绍",
-    relatedStoriesTitle: "相关故事",
-    transcriptTitle: "字幕",
-    audioTitle: "音频",
-    imageSlidesTitle: "图片轮播",
-    changeLanguage: "切换语言",
-    resetOnboarding: "重置引导页",
-    backToIntro: "回到地点主介绍",
-    introChip: "主介绍",
-    stopMenuAria: "校园导览地点列表",
-    storiesDescription: "点击相关故事后，会进入相同版式的故事播放器页面。",
-    placeholderStoryNotice: "占位故事页面：在正式故事素材加入前，这里暂时复用该地点的主介绍媒体内容。",
-    placeholderTranscriptNotice: "字幕为占位内容：请将此语言对应的歌词/讲稿文件替换为正式版本。",
-    previousSlide: "上一张",
-    nextSlide: "下一张",
-    transcriptJumpHint: "点击某一行字幕，可直接跳转到对应音频时间。",
-    currentViewLabel: "当前内容",
-    stopIntroCardTitle: "主介绍",
-    stopIntroCardBody: "返回该地点的主导览音频与图片。",
-    noStoriesLabel: "暂时没有相关故事。",
-    playAnotherStory: "打开故事",
+    guidedTourLabel: "校园导览",
+    selectLanguagePlaceholder: "选择语言",
+    selectLanguageAria: "选择语言",
+    nextLabel: "下一步",
+    languageSettingLabel: "语言 / Language",
+    onboardingSlides: [
+      "每个导览地点都会提供校园官方介绍",
+      "你可以随时暂停或跳过音频",
+      "在地点之间切换时，也可以听学生故事"
+    ],
+    loadingLabel: "正在加载……",
     loadingErrorTitle: "无法加载此地点内容。",
-    loadingErrorBody: "请确认 public/content 中存在对应静态资源后再试。"
+    loadingErrorBody: "请确认对应静态资源存在后再试。",
+    unknownRouteLabel: "未知页面。",
+    noImageLabel: "暂无图片",
+    noTranscriptLabel: "暂无字幕",
+    backToIntro: "返回主介绍",
+    mainIntroductionTitle: "主介绍",
+    mainIntroductionDescription: "返回该导览地点的官方主介绍。",
+    relatedStoriesTitle: "相关学生故事",
+    relatedStoriesSubtitle: "可在停留或移动途中收听",
+    menuTitle: "菜单",
+    settingsTitle: "设置",
+    settingsAndPreferences: "设置与偏好",
+    changeLanguageScreen: "返回语言选择页",
+    replayOnboarding: "重新播放引导动画",
+    playPauseAria: "播放或暂停",
+    seekBackwardAlt: "后退10秒",
+    seekForwardAlt: "前进10秒",
+    previousStopAlt: "上一个地点",
+    nextStopAlt: "下一个地点",
+    playAlt: "播放",
+    pauseAlt: "暂停",
+    menuAlt: "菜单",
+    closeMenuAlt: "关闭菜单",
+    backToMenuAlt: "返回菜单",
+    enlargeTranscriptAlt: "展开字幕",
+    slideLabel: "图片",
+    coulterHallAlt: "Coulter Hall 插画",
+    cmuLogoAlt: "卡内基梅隆大学",
+    megaphoneAlt: "扩音器",
+    pauseIllustrationAlt: "暂停",
+    studentStoryAlt: "学生故事"
   },
   es: {
-    selectLanguageHeading: "Selecciona tu idioma",
-    selectLanguageBody: "Elige un idioma para comenzar la experiencia del recorrido por CMU.",
-    prototypeLabel: "Versión prototipo",
-    languageLabel: "Idioma",
-    chooseStopLabel: "Parada del recorrido",
-    onboardingTitle: "Cómo funciona este recorrido",
-    onboardingBody: "Cada parada incluye diapositivas de imágenes, reproducción de audio y una transcripción sincronizada. Puedes mover el audio en cualquier momento y la transcripción seguirá la posición actual.",
-    dontShowAgain: "No mostrar de nuevo",
-    continueLabel: "Continuar",
-    backLabel: "Atrás",
-    loadingLabel: "Cargando contenido…",
-    mainIntroLabel: "Introducción de la parada",
-    relatedStoriesTitle: "Historias relacionadas",
-    transcriptTitle: "Transcripción",
-    audioTitle: "Audio",
-    imageSlidesTitle: "Diapositivas",
-    changeLanguage: "Cambiar idioma",
-    resetOnboarding: "Reiniciar introducción",
-    backToIntro: "Volver a la introducción",
-    introChip: "Introducción",
-    stopMenuAria: "Paradas del recorrido",
-    storiesDescription: "Selecciona una historia relacionada para abrir el mismo diseño con navegación entre historias.",
-    placeholderStoryNotice: "Vista provisional: por ahora reutiliza los recursos principales de la parada hasta agregar contenido propio.",
-    placeholderTranscriptNotice: "Transcripción provisional: reemplaza el archivo de letras con el texto final para este idioma.",
-    previousSlide: "Anterior",
-    nextSlide: "Siguiente",
-    transcriptJumpHint: "Haz clic en una línea para saltar a ese punto del audio.",
-    currentViewLabel: "Vista actual",
-    stopIntroCardTitle: "Introducción principal",
-    stopIntroCardBody: "Vuelve a la introducción principal de esta parada.",
-    noStoriesLabel: "Todavía no hay historias relacionadas.",
-    playAnotherStory: "Abrir historia",
+    guidedTourLabel: "Recorrido Guiado",
+    selectLanguagePlaceholder: "Selecciona un idioma",
+    selectLanguageAria: "Selecciona el idioma",
+    nextLabel: "Siguiente",
+    languageSettingLabel: "Idioma / Language",
+    onboardingSlides: [
+      "Cada parada del recorrido ofrece una introducción oficial sobre el campus",
+      "Puedes pausar o saltar el audio en cualquier momento",
+      "Escucha historias de estudiantes mientras avanzas entre paradas"
+    ],
+    loadingLabel: "Cargando…",
     loadingErrorTitle: "No se pudo cargar esta parada.",
-    loadingErrorBody: "Confirma que los recursos existan en public/content e inténtalo de nuevo."
+    loadingErrorBody: "Confirma que los recursos existan e inténtalo de nuevo.",
+    unknownRouteLabel: "Ruta desconocida.",
+    noImageLabel: "No hay imagen disponible",
+    noTranscriptLabel: "No hay transcripción disponible",
+    backToIntro: "Volver a la introducción",
+    mainIntroductionTitle: "Introducción principal",
+    mainIntroductionDescription: "Vuelve a la introducción oficial de esta parada.",
+    relatedStoriesTitle: "Historias relacionadas de estudiantes",
+    relatedStoriesSubtitle: "Escúchalas entre paradas y descansos",
+    menuTitle: "MENÚ",
+    settingsTitle: "AJUSTES",
+    settingsAndPreferences: "Ajustes y preferencias",
+    changeLanguageScreen: "Volver a la pantalla de idioma",
+    replayOnboarding: "Repetir introducción",
+    playPauseAria: "Reproducir o pausar",
+    seekBackwardAlt: "Retroceder 10 segundos",
+    seekForwardAlt: "Avanzar 10 segundos",
+    previousStopAlt: "Parada anterior",
+    nextStopAlt: "Siguiente parada",
+    playAlt: "Reproducir",
+    pauseAlt: "Pausar",
+    menuAlt: "Menú",
+    closeMenuAlt: "Cerrar menú",
+    backToMenuAlt: "Volver al menú",
+    enlargeTranscriptAlt: "Ampliar transcripción",
+    slideLabel: "Diapositiva",
+    coulterHallAlt: "Ilustración de Coulter Hall",
+    cmuLogoAlt: "Carnegie Mellon University",
+    megaphoneAlt: "Megáfono",
+    pauseIllustrationAlt: "Pausa",
+    studentStoryAlt: "Historia estudiantil"
   }
 };
 
@@ -189,12 +219,39 @@ export const TOUR_STOPS = [
     }
   },
   {
+    id: "ghc",
+    folder: "GHC",
+    names: {
+      en: "Gates Hillman Center",
+      zh: "SCS计算机科学学院",
+      es: "Centro Gates Hillman"
+    }
+  },
+  {
     id: "wean",
     folder: "wean",
     names: {
       en: "Wean Hall",
-      zh: "Wean Hall / 梅隆科学学院",
+      zh: "MCS梅隆科学学院",
       es: "Wean Hall"
+    }
+  },
+  {
+    id: "hamerschlag",
+    folder: "hamerschlag",
+    names: {
+      en: "Hamerschlag Hall",
+      zh: "CIT工程学院",
+      es: "Hamerschlag Hall"
+    }
+  },
+  {
+    id: "dc",
+    folder: "DC",
+    names: {
+      en: "Baker Hall",
+      zh: "Dietrich人文与社会科学学院",
+      es: "Baker Hall"
     }
   },
   {
@@ -207,24 +264,6 @@ export const TOUR_STOPS = [
     }
   },
   {
-    id: "uc",
-    folder: "uc",
-    names: {
-      en: "Cohon University Center",
-      zh: "Cohon大学中心",
-      es: "Centro Universitario Cohon"
-    }
-  },
-  {
-    id: "hamerschlag",
-    folder: "hamerschlag",
-    names: {
-      en: "Hamerschlag Hall",
-      zh: "Hamerschlag 工程学院",
-      es: "Hamerschlag Hall"
-    }
-  },
-  {
     id: "cfa",
     folder: "cfa",
     names: {
@@ -234,42 +273,34 @@ export const TOUR_STOPS = [
     }
   },
   {
-    id: "purnell",
-    folder: "purnell",
-    names: {
-      en: "Purnell Center",
-      zh: "Purnell中心",
-      es: "Centro Purnell"
-    }
-  },
-  {
     id: "fence",
     folder: "fence",
     names: {
       en: "The Fence",
-      zh: "校园围栏",
+      zh: "围栏及校园文化",
       es: "La Valla"
     }
   },
   {
-    id: "dc",
-    folder: "DC",
+    id: "purnell",
+    folder: "purnell",
     names: {
-      en: "Dietrich College",
-      zh: "Dietrich人文与社会科学学院",
-      es: "Dietrich College"
+      en: "Purnell Center",
+      zh: "戏剧学院",
+      es: "Centro Purnell"
     }
   },
   {
-    id: "ghc",
-    folder: "GHC",
+    id: "uc",
+    folder: "uc",
     names: {
-      en: "Gates & Hillman Centers",
-      zh: "Gates 与 Hillman 中心 / 计算机学院",
-      es: "Centros Gates y Hillman"
+      en: "Cohon University Center",
+      zh: "Cohon大学中心",
+      es: "Centro Universitario Cohon"
     }
   }
 ];
+
 
 export const STOP_INDEX = Object.fromEntries(TOUR_STOPS.map((stop) => [stop.id, stop]));
 
