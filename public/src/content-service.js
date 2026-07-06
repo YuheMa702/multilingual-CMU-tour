@@ -10,6 +10,7 @@ import {
 } from "./content-manifest.js";
 
 const introCache = new Map();
+const storyCache = new Map();
 
 export function getStops() {
   return TOUR_STOPS;
@@ -24,13 +25,13 @@ export function isValidStop(stopId) {
 }
 
 export function isValidStory(storyId) {
-  return storyId === "intro" || STORY_TEMPLATES.some((story) => story.id === storyId);
+  return storyId === "intro" || Boolean(storyId);
 }
 
 export async function loadTourView(stopId, storyId, lang = DEFAULT_LANG) {
   const stop = getStop(stopId);
   const intro = await loadIntroContent(stop, lang);
-  const relatedStories = buildRelatedStories(stop, intro.slides, lang);
+  const relatedStories = await buildRelatedStories(stop, intro.slides, lang);
 
   if (!storyId || storyId === "intro") {
     return {
@@ -53,14 +54,17 @@ export async function loadTourView(stopId, storyId, lang = DEFAULT_LANG) {
     ...intro,
     stop,
     stopId: stop.id,
-    storyId: activeStory.id,
-    route: buildMainRoute(stop.id, activeStory.id),
+    storyId: activeStory?.id || "intro",
+    route: buildMainRoute(stop.id, activeStory?.id || "intro"),
     viewKind: "story",
     relatedStories,
-    activeCardId: activeStory.id,
-    viewTitle: activeStory.title,
-    viewDescription: activeStory.description,
-    slides: rotateSlides(intro.slides, activeStory.slideOffset),
+    activeCardId: activeStory?.id || "intro",
+    viewTitle: activeStory?.title || getStopName(stop.id, lang),
+    viewDescription: activeStory?.description || "",
+    slides: rotateSlides(intro.slides, activeStory?.slideOffset || 0),
+    audioSrc: activeStory?.audioSrc || intro.audioSrc,
+    transcript: activeStory?.transcript || intro.transcript,
+    transcriptTitle: activeStory?.title || intro.transcriptTitle,
     usingPlaceholderStoryMedia: true
   };
 }
@@ -100,15 +104,44 @@ async function loadIntroContent(stop, lang) {
   return promise;
 }
 
-function buildRelatedStories(stop, slides, lang) {
-  return STORY_TEMPLATES.map((template, index) => ({
-    id: template.id,
-    title: template.titles[lang] || template.titles[DEFAULT_LANG],
-    description: template.descriptions[lang] || template.descriptions[DEFAULT_LANG],
-    thumbnail: pickThumbnail(slides, template.slideOffset || index + 1),
-    route: buildMainRoute(stop.id, template.id),
-    slideOffset: template.slideOffset || index + 1
+async function buildRelatedStories(stop, slides, lang) {
+  const stories = await loadStories(lang);
+  if (!stories.length) {
+    return STORY_TEMPLATES.map((template, index) => ({
+      id: template.id,
+      title: template.titles[lang] || template.titles[DEFAULT_LANG],
+      description: template.descriptions[lang] || template.descriptions[DEFAULT_LANG],
+      thumbnail: pickThumbnail(slides, template.slideOffset || index + 1),
+      route: buildMainRoute(stop.id, template.id),
+      slideOffset: template.slideOffset || index + 1,
+      audioSrc: `${buildStoryPlaceholderAudioPath(stop, lang)}#${template.id}`,
+      transcript: buildPlaceholderTranscript(getStopName(stop.id, lang), lang, getUiText(lang))
+    }));
+  }
+
+  return stories.map((story, index) => ({
+    ...story,
+    thumbnail: pickThumbnail(slides, index + 1),
+    route: buildMainRoute(stop.id, story.id),
+    slideOffset: index + 1,
+    transcript: buildStoryPlaceholderTranscript(story, lang)
   }));
+}
+
+async function loadStories(lang) {
+  if (storyCache.has(lang)) return storyCache.get(lang);
+
+  const promise = (async () => {
+    const stories = await fetchJson(`/api/stories?lang=${encodeURIComponent(lang)}`, []);
+    return Array.isArray(stories) ? stories : [];
+  })();
+
+  storyCache.set(lang, promise);
+  return promise;
+}
+
+function buildStoryPlaceholderAudioPath(stop, lang) {
+  return `/content/${stop.folder}/audio/audio-${getAssetLang(lang)}.MP3`;
 }
 
 function pickThumbnail(slides, offset = 0) {
@@ -185,6 +218,30 @@ function parseLyricsTranscript(rawText, { stopName, lang, ui }) {
     usingPlaceholder: false,
     lines
   };
+}
+
+function buildStoryPlaceholderTranscript(story, lang) {
+  if (lang === "zh") {
+    return [
+      { time: 0, text: `${story.speaker} 的学生故事占位内容。` },
+      { time: 8, text: `主题：${story.topic}。` },
+      { time: 16, text: "当前还没有对应讲稿，之后可以直接补充真实字幕。" }
+    ];
+  }
+
+  if (lang === "es") {
+    return [
+      { time: 0, text: `Historia provisional del estudiante ${story.speaker}.` },
+      { time: 8, text: `Tema: ${story.topic}.` },
+      { time: 16, text: "Todavía no hay transcripción, así que este texto es temporal." }
+    ];
+  }
+
+  return [
+    { time: 0, text: `${story.speaker} story placeholder.` },
+    { time: 8, text: `Topic: ${story.topic}.` },
+    { time: 16, text: "A transcript has not been added yet, so this is temporary placeholder copy." }
+  ];
 }
 
 function buildPlaceholderTranscript(stopName, lang, ui) {

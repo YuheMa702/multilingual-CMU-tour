@@ -685,6 +685,21 @@ h3 {
   line-height: 1.3;
 }
 
+.story-card-subcaption {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #666;
+  line-height: 1.3;
+}
+
+.stories-rail {
+  position: relative;
+}
+
+.stories-scroll-btn {
+  display: none;
+}
+
 .story-placeholder {
   background: #eee;
 }
@@ -970,5 +985,36 @@ h3 {
 
   .storyImg {
     width: 160px;
+  }
+}
+
+
+@media screen and (min-width: 769px) {
+  .stories-rail {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .stories {
+    flex: 1;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .stories-scroll-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 0;
+    border-radius: 999px;
+    background: #f3f4f6;
+    color: #333;
+    cursor: pointer;
+    flex: 0 0 36px;
   }
 }

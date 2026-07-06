@@ -286,15 +286,20 @@ function buildMainMarkup(view, lang) {
             <h2>${escapeHtml(ui.relatedStoriesTitle)}</h2>
             <h3>${escapeHtml(ui.relatedStoriesSubtitle)}</h3>
           </div>
-          <div class="stories">
-            ${storyCards.map((card) => `
+          <div class="stories-rail">
+            <button class="stories-scroll-btn stories-scroll-btn-left" id="storiesScrollLeftBtn" type="button" aria-label="Scroll stories left">&#10094;</button>
+            <div class="stories" id="storiesList">
+              ${storyCards.map((card) => `
               <button class="story-card-link ${card.id === view.activeCardId ? "selected" : ""}" type="button" data-route="${escapeHtml(card.route)}">
                 ${card.thumbnail
                   ? `<img class="storyImg" src="${escapeHtml(card.thumbnail)}" alt="${escapeHtml(card.title)}">`
                   : `<div class="storyImg story-placeholder"></div>`}
                 <span class="story-card-caption">${escapeHtml(card.title)}</span>
+                ${card.id !== "intro" && card.speaker ? `<span class="story-card-subcaption">${escapeHtml(card.speaker)}</span>` : ""}
               </button>
             `).join("")}
+            </div>
+            <button class="stories-scroll-btn stories-scroll-btn-right" id="storiesScrollRightBtn" type="button" aria-label="Scroll stories right">&#10095;</button>
           </div>
 
           <div id="sideMenu" class="side-menu">
@@ -572,6 +577,18 @@ function bindMainInteractions(root, view, lang) {
       if (route) location.hash = route;
     });
   });
+
+  const storiesList = root.querySelector("#storiesList");
+  const scrollStories = (direction) => {
+    if (!storiesList) return;
+    storiesList.scrollBy({
+      left: direction * Math.max(220, Math.round(storiesList.clientWidth * 0.7)),
+      behavior: "smooth"
+    });
+  };
+
+  root.querySelector("#storiesScrollLeftBtn")?.addEventListener("click", () => scrollStories(-1));
+  root.querySelector("#storiesScrollRightBtn")?.addEventListener("click", () => scrollStories(1));
 
   root.querySelector("#backToIntroBtn")?.addEventListener("click", () => {
     location.hash = buildMainRoute(view.stopId, "intro");
