@@ -75,7 +75,7 @@ async function loadIntroContent(stop, lang) {
   if (introCache.has(cacheKey)) return introCache.get(cacheKey);
 
   const promise = (async () => {
-    const base = `/content/${stop.folder}`;
+    const base = `./content/${stop.folder}`;
     const slideNames = await fetchJson(`${base}/images/images.json`, []);
     const slides = Array.isArray(slideNames)
       ? slideNames.map((name) => `${base}/images/${name}`)
@@ -132,8 +132,14 @@ async function loadStories(lang) {
   if (storyCache.has(lang)) return storyCache.get(lang);
 
   const promise = (async () => {
-    const stories = await fetchJson(`/api/stories?lang=${encodeURIComponent(lang)}`, []);
-    return Array.isArray(stories) ? stories : [];
+    const stories = await fetchJson(
+      "./content/stories/stories.json",
+      []
+    );
+
+    return Array.isArray(stories)
+      ? stories.filter((story) => story.lang === lang)
+      : [];
   })();
 
   storyCache.set(lang, promise);
@@ -141,7 +147,7 @@ async function loadStories(lang) {
 }
 
 function buildStoryPlaceholderAudioPath(stop, lang) {
-  return `/content/${stop.folder}/audio/audio-${getAssetLang(lang)}.MP3`;
+  return `./content/${stop.folder}/audio/audio-${getAssetLang(lang)}.MP3`;
 }
 
 function pickThumbnail(slides, offset = 0) {

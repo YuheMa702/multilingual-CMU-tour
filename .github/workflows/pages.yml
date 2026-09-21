@@ -1,0 +1,65 @@
+name: Deploy CMU Tour to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+  # Allows you to manually run the deployment from the Actions tab.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "github-pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      # 1. Download the repository onto the GitHub Actions runner.
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      # 2. Node is only needed to run generate-stories.mjs.
+      #    Your script uses only built-in Node modules, so npm install is NOT needed.
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+
+      # 3. Convert public/content/stories/*.wav filenames
+      #    into public/content/stories/stories.json.
+      - name: Generate story manifest
+        run: node scripts/generate-stories.mjs
+
+      # Optional but useful: fail deployment immediately if the manifest
+      # was not generated for some reason.
+      - name: Verify generated story manifest
+        run: test -f public/content/stories/stories.json
+
+      # 4. Configure the deployment for GitHub Pages.
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      # 5. Upload ONLY the public/ directory as the website.
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./public
+
+      # 6. Publish the uploaded artifact.
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

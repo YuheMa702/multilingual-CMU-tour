@@ -35,9 +35,9 @@ function renderLang(root) {
       <div class="phone-shell landing-shell">
         <div class="landing-container">
           <div class="landing-hero">
-            <img src="/static/ui-assets/School.png" alt="${escapeHtml(ui.coulterHallAlt)}">
+            <img src="./static/ui-assets/School.png" alt="${escapeHtml(ui.coulterHallAlt)}">
           </div>
-          <img src="/static/ui-assets/Carnegie Mellon University.png" alt="${escapeHtml(ui.cmuLogoAlt)}" class="cmu-logo">
+          <img src="./static/ui-assets/Carnegie Mellon University.png" alt="${escapeHtml(ui.cmuLogoAlt)}" class="cmu-logo">
           <p class="landing-subtitle">${escapeHtml(ui.guidedTourLabel)}</p>
 
           <div class="language-selector">
@@ -89,15 +89,15 @@ function renderOnboarding(root) {
           <div id="intros" class="intros visible">
             <div class="intro-slide active" data-index="0">
               <p class="intro-copy">${escapeHtml(ui.onboardingSlides[0])}</p>
-              <img class="intro-illustration" src="/static/ui-assets/megaphone.png" alt="${escapeHtml(ui.megaphoneAlt)}">
+              <img class="intro-illustration" src="./static/ui-assets/megaphone.png" alt="${escapeHtml(ui.megaphoneAlt)}">
             </div>
             <div class="intro-slide" data-index="1">
               <p class="intro-copy">${escapeHtml(ui.onboardingSlides[1])}</p>
-              <img class="intro-illustration" src="/static/ui-assets/pause.png" alt="${escapeHtml(ui.pauseIllustrationAlt)}">
+              <img class="intro-illustration" src="./static/ui-assets/pause.png" alt="${escapeHtml(ui.pauseIllustrationAlt)}">
             </div>
             <div class="intro-slide" data-index="2">
               <p class="intro-copy">${escapeHtml(ui.onboardingSlides[2])}</p>
-              <img class="intro-illustration story-illustration" src="/static/ui-assets/studentstory.png" alt="${escapeHtml(ui.studentStoryAlt)}">
+              <img class="intro-illustration story-illustration" src="./static/ui-assets/studentstory.png" alt="${escapeHtml(ui.studentStoryAlt)}">
               <div class="intro-cta">
                 <button id="introStartBtn" class="next-button enabled">${escapeHtml(ui.nextLabel)}</button>
               </div>
@@ -215,7 +215,7 @@ function buildMainMarkup(view, lang) {
     <div class="app-page centered-page detail-page-shell">
       <div class="phone-shell detail-shell">
         <div class="content-container" data-view-kind="${escapeHtml(view.viewKind)}">
-          <img src="/static/ui-assets/menu.png" alt="${escapeHtml(ui.menuAlt)}" class="menu-btn" id="menuBtn">
+          <img src="./static/ui-assets/menu.png" alt="${escapeHtml(ui.menuAlt)}" class="menu-btn" id="menuBtn">
 
           <div class="slideshow-container">
             ${slides.map((src, index) => `
@@ -255,20 +255,20 @@ function buildMainMarkup(view, lang) {
 
             <div class="musicPlayerIcon">
               <button id="seekBackward10Btn" class="seek-btn" type="button">
-                <img src="/static/ui-assets/back.svg" alt="${escapeHtml(ui.seekBackwardAlt)}" class="seek-icon">
+                <img src="./static/ui-assets/back.svg" alt="${escapeHtml(ui.seekBackwardAlt)}" class="seek-icon">
               </button>
               <button id="previousStopBtn" class="control-icon-link" type="button">
-                <img src="/static/ui-assets/previous.png" alt="${escapeHtml(ui.previousStopAlt)}" class="control-icon">
+                <img src="./static/ui-assets/previous.png" alt="${escapeHtml(ui.previousStopAlt)}" class="control-icon">
               </button>
               <button id="playPauseBtn" type="button" aria-label="${escapeHtml(ui.playPauseAria)}">
-                <img class="musicButton" id="playIcon" src="/static/ui-assets/play.svg" alt="${escapeHtml(ui.playAlt)}">
-                <img class="musicButton" id="pauseIcon" src="/static/ui-assets/pause.svg" alt="${escapeHtml(ui.pauseAlt)}" style="display:none;">
+                <img class="musicButton" id="playIcon" src="./static/ui-assets/play.svg" alt="${escapeHtml(ui.playAlt)}">
+                <img class="musicButton" id="pauseIcon" src="./static/ui-assets/pause.svg" alt="${escapeHtml(ui.pauseAlt)}" style="display:none;">
               </button>
               <button id="nextStopBtn" class="control-icon-link" type="button">
-                <img src="/static/ui-assets/next.png" alt="${escapeHtml(ui.nextStopAlt)}" class="control-icon">
+                <img src="./static/ui-assets/next.png" alt="${escapeHtml(ui.nextStopAlt)}" class="control-icon">
               </button>
               <button id="seekForward10Btn" class="seek-btn" type="button">
-                <img src="/static/ui-assets/forward.svg" alt="${escapeHtml(ui.seekForwardAlt)}" class="seek-icon">
+                <img src="./static/ui-assets/forward.svg" alt="${escapeHtml(ui.seekForwardAlt)}" class="seek-icon">
               </button>
             </div>
 
@@ -278,7 +278,7 @@ function buildMainMarkup(view, lang) {
                 <div id="lyrics"></div>
               </div>
               <div class="lyrics-gradient-bottom"></div>
-              <img src="/static/ui-assets/enlarge.svg" alt="${escapeHtml(ui.enlargeTranscriptAlt)}" class="lyrics-enlarge-icon" id="lyricsToggleBtn">
+              <img src="./static/ui-assets/enlarge.svg" alt="${escapeHtml(ui.enlargeTranscriptAlt)}" class="lyrics-enlarge-icon" id="lyricsToggleBtn">
             </div>
           </div>
 
@@ -305,7 +305,7 @@ function buildMainMarkup(view, lang) {
           <div id="sideMenu" class="side-menu">
             <div id="mainMenuView" class="menu-view active">
               <div class="side-menu-header">
-                <img src="/static/ui-assets/menu.png" class="side-menu-close" alt="${escapeHtml(ui.closeMenuAlt)}">
+                <img src="./static/ui-assets/menu.png" class="side-menu-close" alt="${escapeHtml(ui.closeMenuAlt)}">
                 <span>${escapeHtml(ui.menuTitle)}</span>
               </div>
               <ul class="side-menu-list" id="sideMenuList">
@@ -324,7 +324,7 @@ function buildMainMarkup(view, lang) {
 
             <div id="settingsView" class="menu-view">
               <div class="side-menu-header">
-                <img src="/static/ui-assets/previous.svg" class="side-menu-back" alt="${escapeHtml(ui.backToMenuAlt)}">
+                <img src="./static/ui-assets/previous.svg" class="side-menu-back" alt="${escapeHtml(ui.backToMenuAlt)}">
                 <span>${escapeHtml(ui.settingsTitle)}</span>
               </div>
               <div class="settings-content">
