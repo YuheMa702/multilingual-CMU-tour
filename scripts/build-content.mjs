@@ -180,7 +180,7 @@ async function main() {
   const stops = buildStops(stopRows.data,languages);
   const {stories,variants:storyVariants} = buildStories(storyRows.data,declaredLanguages);
   if (!stops.length) fail('No stops in stops.tsv');
-  if (!stops.some(x => x.id === uiConfig.defaultStopId)) fail(`ui.json: defaultStopId '${uiConfig.defaultStopId}' does not match a stop`);
+  // The first menu stop is always the default; no separate ID needs maintenance.
   const records = {stop:new Map(stops.map(x=>[x.id,x])),story:new Map(stories.map(x=>[x.id,x]))};
   await catalogDirectory('audio',records,'audio',declaredLanguages,storyVariants);
   await catalogDirectory('transcripts',records,'transcripts',declaredLanguages,storyVariants);
@@ -218,7 +218,7 @@ async function main() {
     return;
   }
   const enabledLanguageDefinitions = Object.fromEntries(languages.map(lang => [lang,uiConfig.languages[lang]]));
-  const result = {schemaVersion:1,defaultStopId:uiConfig.defaultStopId,languages:enabledLanguageDefinitions,ui,stops,stories};
+  const result = {schemaVersion:1,defaultStopId:stops[0].id,languages:enabledLanguageDefinitions,ui,stops,stories};
   await fs.writeFile(path.join(metadata,'generated.json'),JSON.stringify(result,null,2)+'\n','utf8');
   const file = path.join(metadata,'validation-report.txt');
   await fs.writeFile(file, [
