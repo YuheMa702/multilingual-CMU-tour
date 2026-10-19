@@ -1,0 +1,11 @@
+{
+  "name": "multilingual-cmu-tour-content",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-content.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check": "npm run build && npm test",
+    "patch-render": "node scripts/patch-render.mjs"
+  }
+}

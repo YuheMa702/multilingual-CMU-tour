@@ -3,12 +3,15 @@ import {
   DEFAULT_STOP_ID,
   buildMainRoute,
   getLanguageLabel,
+  getLanguageCodes as getMetadataLanguageCodes,
   getStopName,
   getUiText,
   TOUR_STOPS
 } from "./content-manifest.js";
-import { getStops, loadTourView } from "./content-service.js";
+import { getStops, isValidStory, loadTourView } from "./content-service.js";
 import { clearViewCleanup, nextRenderToken, registerCleanup, setLanguage, setOnboardingSeen, state } from "./state.js";
+import { createTranscriptView } from "./transcript-view.js";
+import { canReuseStoryCarousel, updatePreservingStoryCarousel } from "./story-carousel.js";
 
 export async function render() {
   clearViewCleanup();
@@ -111,23 +114,24 @@ function renderOnboarding(root) {
   const slides = [...root.querySelectorAll(".intro-slide")];
   let introIndex = 0;
   let introTimer = null;
+  let exitTimer = null;
 
   function showIntro(index) {
-    slides.forEach((slide, idx) => {
-      slide.classList.remove("active", "leaving");
-      if (idx === index) return;
-      if (slide.dataset.wasActive === "1") {
-        slide.classList.add("leaving");
-        window.setTimeout(() => slide.classList.remove("leaving"), 600);
-      }
-      slide.dataset.wasActive = "0";
-    });
+    const next = slides[index];
+    if (!next) return;
+    const previous = slides.find(slide => slide.classList.contains("active"));
+    if (previous === next) return;
+    if (exitTimer) window.clearTimeout(exitTimer);
 
-    const active = slides[index];
-    if (active) {
-      active.classList.add("active");
-      active.dataset.wasActive = "1";
+    slides.forEach(slide => slide.classList.remove("active", "leaving"));
+    if (previous) {
+      previous.classList.add("leaving");
+      exitTimer = window.setTimeout(() => {
+        previous.classList.remove("leaving");
+        exitTimer = null;
+      }, 480);
     }
+    next.classList.add("active");
   }
 
   function startIntroAutoPlay() {
@@ -147,6 +151,7 @@ function renderOnboarding(root) {
   startIntroAutoPlay();
   registerCleanup(() => {
     if (introTimer) window.clearInterval(introTimer);
+    if (exitTimer) window.clearTimeout(exitTimer);
   });
 
   root.querySelector("#introStartBtn")?.addEventListener("click", () => {
@@ -160,20 +165,26 @@ async function renderMain(root, token) {
   const ui = getUiText(lang);
   const { stopId = DEFAULT_STOP_ID, storyId = "intro" } = state.route || {};
 
-  root.innerHTML = `
-    <div class="app-page centered-page detail-page-shell">
-      <div class="phone-shell detail-shell">
-        <div class="loading-state">${escapeHtml(ui.loadingLabel)}</div>
+  // Keeping the same-language carousel mounted also preserves touch momentum.
+  const reuseStoryCarousel = canReuseStoryCarousel(root, lang);
+  if (!reuseStoryCarousel) {
+    root.innerHTML = `
+      <div class="app-page centered-page detail-page-shell">
+        <div class="phone-shell detail-shell">
+          <div class="loading-state">${escapeHtml(ui.loadingLabel)}</div>
+        </div>
       </div>
-    </div>
-  `;
+    `;
+  }
 
   try {
     const view = await loadTourView(stopId, storyId, lang);
     if (token !== state.renderToken) return;
 
-    root.innerHTML = buildMainMarkup(view, lang);
-    bindMainInteractions(root, view, lang);
+    const markup = buildMainMarkup(view, lang);
+    const preserved = reuseStoryCarousel && updatePreservingStoryCarousel(root, markup, view, lang);
+    if (!preserved) root.innerHTML = markup;
+    bindMainInteractions(root, view, lang, preserved);
   } catch (error) {
     console.error(error);
     if (token !== state.renderToken) return;
@@ -193,17 +204,8 @@ async function renderMain(root, token) {
 function buildMainMarkup(view, lang) {
   const ui = getUiText(lang);
   const stopOrder = Math.max(1, TOUR_STOPS.findIndex((stop) => stop.id === view.stopId) + 1);
-  const introRoute = buildMainRoute(view.stopId, "intro");
-  const storyCards = [
-    {
-      id: "intro",
-      title: ui.mainIntroductionTitle,
-      description: ui.mainIntroductionDescription,
-      thumbnail: view.relatedStories[0]?.thumbnail || view.slides[0] || "",
-      route: introRoute
-    },
-    ...view.relatedStories
-  ];
+  // The stop narration is NOT a student-story card. The story view retains its Back to Introduction button.
+  const storyCards = view.relatedStories;
 
   const slides = view.slides.length ? view.slides : [""];
   const title = view.viewKind === "story"
@@ -214,7 +216,7 @@ function buildMainMarkup(view, lang) {
   return `
     <div class="app-page centered-page detail-page-shell">
       <div class="phone-shell detail-shell">
-        <div class="content-container" data-view-kind="${escapeHtml(view.viewKind)}">
+        <div class="content-container" data-view-kind="${escapeHtml(view.viewKind)}" data-language="${escapeHtml(lang)}" data-stop-id="${escapeHtml(view.stopId)}">
           <img src="./static/ui-assets/menu.png" alt="${escapeHtml(ui.menuAlt)}" class="menu-btn" id="menuBtn">
 
           <div class="slideshow-container">
@@ -287,10 +289,10 @@ function buildMainMarkup(view, lang) {
             <h3>${escapeHtml(ui.relatedStoriesSubtitle)}</h3>
           </div>
           <div class="stories-rail">
-            <button class="stories-scroll-btn stories-scroll-btn-left" id="storiesScrollLeftBtn" type="button" aria-label="Scroll stories left">&#10094;</button>
+            <button class="stories-scroll-btn stories-scroll-btn-left" id="storiesScrollLeftBtn" type="button" aria-label="${escapeHtml(ui.scrollStoriesLeft)}">&#10094;</button>
             <div class="stories" id="storiesList">
               ${storyCards.map((card) => `
-              <button class="story-card-link ${card.id === view.activeCardId ? "selected" : ""}" type="button" data-route="${escapeHtml(card.route)}">
+              <button class="story-card-link ${card.id === view.activeCardId ? "selected" : ""}" type="button" data-story-id="${escapeHtml(card.id)}" data-route="${escapeHtml(card.route)}">
                 ${card.thumbnail
                   ? `<img class="storyImg" src="${escapeHtml(card.thumbnail)}" alt="${escapeHtml(card.title)}">`
                   : `<div class="storyImg story-placeholder"></div>`}
@@ -299,7 +301,7 @@ function buildMainMarkup(view, lang) {
               </button>
             `).join("")}
             </div>
-            <button class="stories-scroll-btn stories-scroll-btn-right" id="storiesScrollRightBtn" type="button" aria-label="Scroll stories right">&#10095;</button>
+            <button class="stories-scroll-btn stories-scroll-btn-right" id="storiesScrollRightBtn" type="button" aria-label="${escapeHtml(ui.scrollStoriesRight)}">&#10095;</button>
           </div>
 
           <div id="sideMenu" class="side-menu">
@@ -357,7 +359,7 @@ function buildMainMarkup(view, lang) {
   `;
 }
 
-function bindMainInteractions(root, view, lang) {
+function bindMainInteractions(root, view, lang, preservedStoryCarousel = false) {
   const ui = getUiText(lang);
   const audio = root.querySelector("#audio");
   const progressContainer = root.querySelector("#progressContainer");
@@ -410,46 +412,25 @@ function bindMainInteractions(root, view, lang) {
     pauseIcon.style.display = isPaused ? "none" : "inline";
   }
 
+  // One presenter per audio view; the carousel remains independent.
+  const transcriptView = createTranscriptView({
+    container: lyrics,
+    scroller: lyricsScroll,
+    cues: transcript,
+    emptyText: ui.noTranscriptLabel,
+    onSelect(index, time) {
+      currentLine = index;
+      audio.currentTime = time;
+      audio.play().catch(() => {});
+      renderLyrics(true);
+    }
+  });
+
   function renderLyrics(forceUpdate = false) {
-    if (!transcript.length) {
-      lyrics.innerHTML = `<div class="lyric-line current">${escapeHtml(ui.noTranscriptLabel)}</div>`;
-      return;
-    }
-
-    const enlarged = lyricsPlayer.classList.contains("enlarged");
-    if (enlarged && userIsScrolling && !forceUpdate) return;
-
-    if (enlarged) {
-      lyrics.innerHTML = transcript.map((line, index) => `
-        <button class="lyric-line lyric-line-button ${index === currentLine ? "current" : ""}" type="button" data-index="${index}" data-time="${line.time}">
-          ${escapeHtml(line.text)}
-        </button>
-      `).join("");
-
-      const currentButton = lyrics.querySelector(`.lyric-line-button[data-index="${currentLine}"]`);
-      if (currentButton) {
-        currentButton.scrollIntoView({ block: "center", inline: "nearest", behavior: "auto" });
-      }
-    } else {
-      const previous = transcript[currentLine - 1]?.text || "&nbsp;";
-      const current = transcript[currentLine]?.text || "&nbsp;";
-      const next = transcript[currentLine + 1]?.text || "&nbsp;";
-      lyrics.innerHTML = `
-        <div class="lyric-line">${previous === "&nbsp;" ? previous : escapeHtml(previous)}</div>
-        <div class="lyric-line current">${current === "&nbsp;" ? current : escapeHtml(current)}</div>
-        <div class="lyric-line">${next === "&nbsp;" ? next : escapeHtml(next)}</div>
-      `;
-    }
-
-    lyrics.querySelectorAll(".lyric-line-button").forEach((button) => {
-      button.addEventListener("click", () => {
-        const targetTime = Number(button.dataset.time || 0);
-        const targetIndex = Number(button.dataset.index || 0);
-        currentLine = targetIndex;
-        audio.currentTime = targetTime;
-        audio.play().catch(() => {});
-        renderLyrics(true);
-      });
+    transcriptView.render(currentLine, {
+      expanded: lyricsPlayer.classList.contains("enlarged"),
+      follow: !userIsScrolling || forceUpdate,
+      forceScroll: forceUpdate
     });
   }
 
@@ -561,22 +542,29 @@ function bindMainInteractions(root, view, lang) {
     userIsScrolling = false;
     renderLyrics(true);
   });
-  lyricsScroll?.addEventListener("scroll", () => {
+  // Detect user input rather than scroll events: internal auto-follow also
+  // fires scroll events and must NOT be mistaken for a manual swipe.
+  function pauseTranscriptAutoFollow() {
     if (!lyricsPlayer.classList.contains("enlarged")) return;
     userIsScrolling = true;
     if (scrollTimeout) window.clearTimeout(scrollTimeout);
     scrollTimeout = window.setTimeout(() => {
       userIsScrolling = false;
-      renderLyrics(true);
-    }, 1800);
-  });
+    }, 2500);
+  }
+  lyricsScroll?.addEventListener("touchstart", pauseTranscriptAutoFollow, { passive: true });
+  lyricsScroll?.addEventListener("wheel", pauseTranscriptAutoFollow, { passive: true });
+  lyricsScroll?.addEventListener("pointerdown", pauseTranscriptAutoFollow, { passive: true });
+  lyricsScroll?.addEventListener("keydown", pauseTranscriptAutoFollow);
 
-  root.querySelectorAll("[data-route]").forEach((node) => {
-    node.addEventListener("click", () => {
-      const route = node.getAttribute("data-route");
-      if (route) location.hash = route;
+  if (!preservedStoryCarousel) {
+    root.querySelectorAll("[data-route]").forEach((node) => {
+      node.addEventListener("click", () => {
+        const route = node.getAttribute("data-route");
+        if (route) location.hash = route;
+      });
     });
-  });
+  }
 
   const storiesList = root.querySelector("#storiesList");
   const scrollStories = (direction) => {
@@ -587,8 +575,10 @@ function bindMainInteractions(root, view, lang) {
     });
   };
 
-  root.querySelector("#storiesScrollLeftBtn")?.addEventListener("click", () => scrollStories(-1));
-  root.querySelector("#storiesScrollRightBtn")?.addEventListener("click", () => scrollStories(1));
+  if (!preservedStoryCarousel) {
+    root.querySelector("#storiesScrollLeftBtn")?.addEventListener("click", () => scrollStories(-1));
+    root.querySelector("#storiesScrollRightBtn")?.addEventListener("click", () => scrollStories(1));
+  }
 
   root.querySelector("#backToIntroBtn")?.addEventListener("click", () => {
     location.hash = buildMainRoute(view.stopId, "intro");
@@ -645,6 +635,10 @@ function bindMainInteractions(root, view, lang) {
       const code = option.getAttribute("data-lang");
       if (!code) return;
       setLanguage(code);
+      if (view.viewKind === "story" && !isValidStory(view.storyId, code)) {
+        location.hash = buildMainRoute(view.stopId, "intro");
+        return;
+      }
       render();
     });
   });
@@ -667,7 +661,7 @@ function bindMainInteractions(root, view, lang) {
 }
 
 function getLanguageCodes() {
-  return ["en", "zh", "es"];
+  return getMetadataLanguageCodes();
 }
 
 function getOrderedLanguageCodes(currentLang) {

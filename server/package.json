@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "prestart": "node ../scripts/generate-stories.mjs",
+    "prestart": "node ../scripts/build-content.mjs",
     "start": "node server.js"
   },
   "dependencies": {

@@ -1,0 +1,222 @@
+/* Small UI refinements layered on top of the original app.css.
+   No existing class names, brand colors, or asset dimensions are changed. */
+
+/* Align every story card at the top, even when its title wraps. */
+.story-card-link {
+  vertical-align: top; /* inline-flex items otherwise align along their baselines */
+  align-items: stretch;
+  justify-content: flex-start;
+  text-align: left;
+  min-height: 195px;
+}
+
+.story-card-caption {
+  width: 100%;
+  min-height: 2.6em; /* reserve two lines for every title */
+  max-height: 2.6em;
+  text-align: left;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.story-card-subcaption {
+  display: block;
+  width: 100%;
+  min-height: 1.3em;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Center the landing/onboarding content inside the actual mobile viewport. */
+.landing-page {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-shell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin-inline: auto;
+}
+
+.landing-container {
+  width: 100%;
+  margin-inline: auto;
+}
+
+.landing-hero,
+.cmu-logo {
+  margin-inline: auto;
+}
+
+/* Keep every onboarding slide in exactly the same layout cell.
+   Unlike display:none/block, overlapping grid items can crossfade smoothly
+   without pushing the outgoing text/image out of position. */
+.onboarding-container {
+  width: 100%;
+  min-height: min(520px, 100dvh);
+}
+
+.intros,
+.intros.visible {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+  min-height: 320px;
+  margin-top: 0;
+}
+
+.intro-slide {
+  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 320px;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 480ms ease, transform 480ms ease,
+              visibility 0s linear 480ms;
+}
+
+.intro-slide.active {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+
+.intro-slide.leaving {
+  display: flex;
+  opacity: 0;
+  visibility: visible;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition-delay: 0s;
+}
+
+/* Keep existing layout comfortable on small and short phones. */
+@media (max-width: 480px) {
+  .landing-container { padding-inline: 20px; }
+  .onboarding-container { padding-inline: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-slide,
+  .intro-slide.active,
+  .intro-slide.leaving {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* Fixed-size stop numbers in the side menu, regardless of the label length. */
+.side-menu-num-circle {
+  flex: 0 0 26px;
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  min-height: 26px;
+  aspect-ratio: 1 / 1;
+  line-height: 1;
+}
+
+.side-menu-title {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  line-height: 1.4;
+  text-align: left;
+}
+
+/* === Transcript playback scroll stability (mobile + desktop) ===
+   The page may scroll normally, but auto-follow must only move lyricsScroll.
+   Disable scroll anchoring in the frequently changing transcript subtree. */
+.lyrics-player,
+.lyrics-scroll,
+#lyrics {
+  overflow-anchor: none;
+}
+
+/* The compact player always occupies exactly 78px. Updating a subtitle
+   never changes how much vertical space the player takes up. */
+.lyrics-player:not(.enlarged) .lyrics-scroll {
+  min-height: 0;
+  height: 78px;
+  max-height: 78px;
+  overflow: hidden;
+}
+
+.lyrics-player:not(.enlarged) #lyrics {
+  display: grid;
+  grid-template-rows: 20px 38px 20px;
+  align-items: center;
+  height: 78px;
+  min-height: 78px;
+  flex: 0 0 78px;
+}
+
+.lyrics-player:not(.enlarged) .lyric-line {
+  display: block;
+  min-width: 0;
+  width: 100%;
+  line-height: 20px;
+  max-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* Give the active cue two lines without changing the panel height. */
+.lyrics-player:not(.enlarged) .lyric-line.current {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  white-space: normal;
+  line-height: 19px;
+  max-height: 38px;
+}
+
+/* In expanded mode the lines can wrap, but scrolling is confined to the
+   transcript's own scrollable box, never the parent page. */
+.lyrics-player.enlarged .lyrics-scroll {
+  justify-content: flex-start;
+  min-height: 0;
+  overscroll-behavior-y: contain;
+}
+
+.lyrics-player.enlarged #lyrics {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 768px) {
+  /* Don't vertically re-center the entire app as mobile browser bars move. */
+  .detail-page-shell {
+    align-items: flex-start;
+    min-height: 100svh;
+  }
+}
