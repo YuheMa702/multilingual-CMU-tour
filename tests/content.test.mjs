@@ -108,14 +108,52 @@ test('stories missing in a language are not selectable; intro remains available'
   assert.equal(isValidStory('intro','zh'),true);
 });
 
-test('missing stop pictures and story pictures use explicit placeholders',async()=>{
-  const missing=TOUR_STOPS.find(x=>!x.images.length);
-  const view=await loadTourView(missing.id,'intro','en');
-  assert.match(view.slides[0],/stop-placeholder\.svg/);
-  const story=STORIES.find(x=>!x.images.zh && x.audio?.zh);
-  const storyView=await loadTourView(missing.id,story.id,'zh');
-  assert.match(storyView.slides[0],/story-placeholder\.svg/);
+// test('missing stop pictures and story pictures use explicit placeholders',async()=>{
+//   const missing=TOUR_STOPS.find(x=>!x.images.length);
+//   const view=await loadTourView(missing.id,'intro','en');
+//   assert.match(view.slides[0],/stop-placeholder\.svg/);
+//   const story=STORIES.find(x=>!x.images.zh && x.audio?.zh);
+//   const storyView=await loadTourView(missing.id,story.id,'zh');
+//   assert.match(storyView.slides[0],/story-placeholder\.svg/);
+// });
+
+test('missing stop pictures and story pictures use explicit placeholders', async () => {
+  const stop = TOUR_STOPS[0];
+
+  // Temporarily remove a stop's pictures to test placeholder behavior.
+  const originalStopImages = stop.images;
+
+  try {
+    stop.images = [];
+
+    const view = await loadTourView(stop.id, 'intro', 'en');
+
+    assert.deepEqual(
+      view.slides,
+      ['./static/ui-assets/stop-placeholder.svg']
+    );
+  } finally {
+    stop.images = originalStopImages;
+  }
+
+  // Temporarily remove a story's pictures to test placeholder behavior.
+  const story = STORIES.find(s => s.audio?.zh);
+  const originalStoryImages = story.images.zh;
+
+  try {
+    story.images.zh = [];
+
+    const view = await loadTourView(stop.id, story.id, 'zh');
+
+    assert.deepEqual(
+      view.slides,
+      ['./static/ui-assets/story-placeholder.svg']
+    );
+  } finally {
+    story.images.zh = originalStoryImages;
+  }
 });
+
 
 test('demo only exposes English and Chinese; Spanish is disabled in editable UI metadata',async()=>{
   assert.deepEqual(getLanguageCodes(),['en','zh']);
