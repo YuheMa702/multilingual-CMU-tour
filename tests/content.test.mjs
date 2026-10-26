@@ -32,7 +32,8 @@ test('all 15 stops and all 22 stories are populated from metadata and correctly 
 test('all static paths in the manifest exist; each item has playable media',async()=>{
   for (const item of [...TOUR_STOPS,...STORIES]) {
     assert.ok(Object.values(item.audio).length,`no audio for ${item.id}`);
-    const paths=[...Object.values(item.audio),...Object.values(item.transcripts),...(Array.isArray(item.images)?item.images:Object.values(item.images))];
+    const images = Array.isArray(item.images) ? item.images : Object.values(item.images).flat();
+    const paths=[...Object.values(item.audio),...Object.values(item.transcripts),...images];
     for (const p of paths) {
       assert.match(p,/^\.\/content\//);
       await fs.access(path.resolve(contentDir,decodeURIComponent(p.slice(2))));
@@ -189,6 +190,52 @@ async function storyFixture() {
   const compile=()=>spawnSync(process.execPath,[path.join(scratch,'scripts/build-content.mjs')],{encoding:'utf8'});
   return {scratch,data,source,variants,compile};
 }
+
+test('numbered story photos are ordered, use the first image as thumbnail, and allow legacy photos', async () => {
+  const fixture = await storyFixture();
+  try {
+    const folder = path.join(fixture.data, 'images');
+    for (const name of [
+      'story--julia-research-1--en--003.jpg',
+      'story--julia-research-1--en--001.jpg',
+      'story--julia-research-1--en--002.jpg',
+      'story--julia-research-1--zh.jpg',
+      'story--julia-research-1--zh--002.jpg'
+    ]) await fs.writeFile(path.join(folder, name), 'stub');
+    const result = fixture.compile();
+    assert.equal(result.status, 0, result.stderr);
+    const manifest = JSON.parse(await fs.readFile(path.join(fixture.data, 'metadata/generated.json'), 'utf8'));
+    const story = manifest.stories[0];
+    assert.deepEqual(story.images.en.map(src => decodeURIComponent(src).split('/').at(-1)), [
+      'story--julia-research-1--en--001.jpg',
+      'story--julia-research-1--en--002.jpg',
+      'story--julia-research-1--en--003.jpg'
+    ]);
+    assert.deepEqual(story.images.zh.map(src => decodeURIComponent(src).split('/').at(-1)), [
+      'story--julia-research-1--zh.jpg',
+      'story--julia-research-1--zh--002.jpg'
+    ]);
+    await fs.writeFile(path.join(folder, 'story--julia-research-1--zh--001.jpg'), 'stub');
+    const duplicate = fixture.compile();
+    assert.notEqual(duplicate.status, 0);
+    assert.match(duplicate.stderr, /Duplicate story image number/);
+  } finally {
+    await fs.rm(fixture.scratch, {recursive:true, force:true});
+  }
+});
+
+test('story view reuses slideshow photos and first image as rail thumbnail', async () => {
+  const story = STORIES.find(s => s.id === 'eric-campus-din-2');
+  const original = story.images.en;
+  try {
+    story.images.en = ['./content/images/first.jpg', './content/images/second.jpg'];
+    const view = await loadTourView(TOUR_STOPS[0].id, story.id, 'en');
+    assert.deepEqual(view.slides, story.images.en);
+    assert.equal(view.relatedStories.find(s => s.id === story.id).thumbnail, story.images.en[0]);
+  } finally {
+    story.images.en = original;
+  }
+});
 
 test('generator accepts two titles under the same story ID and excludes disabled languages',async()=>{
   const f=await storyFixture();

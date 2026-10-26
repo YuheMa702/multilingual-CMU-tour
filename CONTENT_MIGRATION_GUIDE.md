@@ -42,12 +42,13 @@ All managed media filenames follow a predictable pattern. Use **lowercase letter
 | Stop photo | `stop--<stop-id>--<number>.jpg` | `stop--gates--001.jpg` |
 | Story audio | `story--<story-id>--<language>.mp3` | `story--julia-research-1--en.mp3` |
 | Story transcript | `story--<story-id>--<language>.vtt` | `story--julia-research-1--en.vtt` |
-| Story photo | `story--<story-id>--<language>.jpg` | `story--julia-research-1--zh.jpg` |
+| Story photo (numbered) | `story--<story-id>--<language>--<number>.jpg` | `story--julia-research-1--zh--001.jpg` |
 
 - `en` means **English**; `zh` means **Chinese**. Supported/visible language codes are defined in `ui.json` (not in a separate language TSV).
 - Stop photos are **shared across languages**: name them `stop--gates--001.jpg`, **not** `stop--gates--en--001.jpg`.
 - Number stop photos `001`, `002`, `003`, etc. Their filename numbers determine slideshow order. Prefer consecutive numbering starting from `001`.
-- Story photos are **language-specific**: use **one image per story per language**. The language suffix belongs in the filename even if the same picture is reused for both languages.
+- Story photos are **language-specific** and may contain **multiple numbered images per language**: `story--julia-research-1--zh--001.jpg`, `story--julia-research-1--zh--002.jpg`, etc. Their numeric order controls the slideshow, and the first image is the thumbnail in the story rail.
+- **Backward compatibility:** existing unnumbered images such as `story--julia-research-1--zh.jpg` still work as picture `001`. Do not place both this legacy filename and a numbered `--001` image for the same story and language; the build will reject the duplicate.
 - Accepted file types: audio `.mp3`, `.wav`, `.ogg`, `.m4a`; transcripts `.vtt`; images `.jpg`, `.jpeg`, `.png`, `.webp`. Use the **actual** extension of your file and keep it lowercase. **MP3 is recommended** for reasonable upload/deployment sizes.
 - IDs are stable identifiers, not display titles. For example, the ID `julia-research-1` stays the same even if you change the displayed title from “Getting Involved in Research” to something else.
 
@@ -233,7 +234,24 @@ Missing UI translations can fall back to English, but please complete translatio
 
 ### Add or replace a student-story photo
 
-Upload exactly one image for the desired story/language, such as `images/story--julia-research-1--zh.jpg`. The app will display a built-in placeholder when that variant has no image. If English and Chinese both need a picture, provide an appropriately named image for each language.
+Upload one or more pictures for the desired story and language. For example:
+
+```text
+images/story--julia-research-1--en--001.jpg
+images/story--julia-research-1--en--002.jpg
+images/story--julia-research-1--en--003.jpg
+images/story--julia-research-1--zh--001.jpg
+```
+
+- The lowest numbered image is used as the thumbnail in the student-story rail.
+- Opening a story shows **all** its pictures using the existing slideshow, in numeric order.
+- Number pictures consecutively from `001` to avoid numbering-gap warnings.
+- A single picture works normally. If the story has no pictures, its existing placeholder displays.
+- Image lists are separate for each language. If both English and Chinese need the same photograph, provide a correctly named file for each language.
+- **Older single-image filenames are still accepted**, for example `story--julia-research-1--en.jpg`, and act like `--001`. You can add `--002` and later images without renaming the old file. Never include both an unnumbered image and a numbered `--001` for the same story/language.
+- As with stop images, you do not edit `stories.tsv` or `generated.json` simply to add photos. Run `npm run check` and refresh the browser.
+
+The existing story-card appearance, slideshow arrows, pagination dots, and responsive styling remain unchanged.
 
 ### Add a transcript (subtitles)
 

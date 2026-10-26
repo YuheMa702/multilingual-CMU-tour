@@ -106,6 +106,7 @@ async function catalogDirectory(subdir, records, role, declaredLanguages, storyV
   const names = (await fs.readdir(path.join(content,subdir))).sort();
   const seen = new Set();
   const imagesByStop = new Map();
+  const imagesByStory = new Map();
   for (const filename of names) {
     const abs = path.join(content,subdir,filename);
     if (!(await fs.stat(abs)).isFile()) {warn(`${subdir}: ignoring directory ${filename}`);continue;}
@@ -115,12 +116,14 @@ async function catalogDirectory(subdir, records, role, declaredLanguages, storyV
     let match;
     if (role==='image') {
       match = filename.match(/^(stop)--([a-z0-9-]+)--(\d{3})\.(jpg|jpeg|png|webp)$/)
+           || filename.match(/^(story)--([a-z0-9-]+)--([a-z]{2,3})--(\d{3})\.(jpg|jpeg|png|webp)$/)
            || filename.match(/^(story)--([a-z0-9-]+)--([a-z]{2,3})\.(jpg|jpeg|png|webp)$/);
     } else {
       match = filename.match(/^(stop|story)--([a-z0-9-]+)--([a-z]{2,3})\.(mp3|wav|ogg|m4a|vtt)$/);
     }
     if (!match) {fail(`Unrecognized ${subdir} filename: ${filename}`);continue;}
-    const [,entity,id,qualifier,ext] = match;
+    const [,entity,id,qualifier,fourth,fifth] = match;
+    const ext = fifth || fourth;
     if (!idPattern.test(id)) {fail(`Invalid id in ${filename}`);continue;}
     if (!records[entity].has(id)) {fail(`${subdir}/${filename}: ${entity} '${id}' not in metadata TSV`);continue;}
     const record = records[entity].get(id);
@@ -138,8 +141,17 @@ async function catalogDirectory(subdir, records, role, declaredLanguages, storyV
         imagesByStop.get(id).push({number:Number(qualifier),url});
       } else {
         if (!langPattern.test(qualifier) || !declaredLanguages.includes(qualifier)) {fail(`Unknown image language: ${filename}`);continue;}
-        if (record.images[qualifier]) fail(`Multiple pictures for story/${id} language/${qualifier}`);
-        record.images[qualifier] = url;
+        // Existing unnumbered story photos are treated as image 001.
+        // Numbered photos are collected in ascending order for the slideshow.
+        const number = fifth ? Number(fourth) : 1;
+        const key = `${id}/${qualifier}`;
+        if (!imagesByStory.has(key)) imagesByStory.set(key, []);
+        const photos = imagesByStory.get(key);
+        if (photos.some(photo => photo.number === number)) {
+          fail(`Duplicate story image number: ${key}/${String(number).padStart(3, '0')}`);
+          continue;
+        }
+        photos.push({number, url});
       }
     } else {
       if (!langPattern.test(qualifier) || !declaredLanguages.includes(qualifier)) {fail(`Unknown audio/transcript language: ${filename}`);continue;}
@@ -156,6 +168,17 @@ async function catalogDirectory(subdir, records, role, declaredLanguages, storyV
       imgs.sort((a,b)=>a.number-b.number);
       records.stop.get(id).images = imgs.map(x=>x.url);
       imgs.forEach((img,i)=> {if (img.number!==i+1) warn(`stop/${id}: photo numbering gap; expected ${String(i+1).padStart(3,'0')}`);});
+    }
+    for (const [key, photos] of imagesByStory) {
+      photos.sort((a, b) => a.number - b.number);
+      const slash = key.lastIndexOf('/');
+      const id = key.slice(0, slash);
+      const lang = key.slice(slash + 1);
+      records.story.get(id).images[lang] = photos.map(photo => photo.url);
+      photos.forEach((photo, index) => {
+        if (photo.number !== index + 1)
+          warn(`story/${key}: photo numbering gap; expected ${String(index + 1).padStart(3, '0')}`);
+      });
     }
   }
 }
@@ -200,7 +223,7 @@ async function main() {
       for (const lang of audioLanguages) if (!item.transcripts[lang]) warn(`${entity}/${item.id}: missing '${lang}' transcript`);
       if (entity==='stop' && item.images.length===0) warn(`stop/${item.id}: no photos; placeholder image will display`);
       if (entity==='story') {
-        for (const lang of audioLanguages) if (!item.images[lang]) warn(`story/${item.id}: no '${lang}' photo; placeholder will display`);
+        for (const lang of audioLanguages) if (!item.images[lang]?.length) warn(`story/${item.id}: no '${lang}' photo; placeholder will display`);
       }
     }
   }
