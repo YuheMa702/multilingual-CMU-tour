@@ -217,7 +217,12 @@ function buildMainMarkup(view, lang) {
     <div class="app-page centered-page detail-page-shell">
       <div class="phone-shell detail-shell">
         <div class="content-container" data-view-kind="${escapeHtml(view.viewKind)}" data-language="${escapeHtml(lang)}" data-stop-id="${escapeHtml(view.stopId)}">
-          <img src="./static/ui-assets/menu.png" alt="${escapeHtml(ui.menuAlt)}" class="menu-btn" id="menuBtn">
+          <header class="cmu-tour-header" aria-label="Carnegie Mellon University">
+            <img class="cmu-tour-lettermark" src="./static/ui-assets/cmu-lettermark-r.png" alt="Carnegie Mellon University">
+            <button class="menu-btn cmu-tour-menu" id="menuBtn" type="button" aria-label="${escapeHtml(ui.menuAlt)}" aria-controls="sideMenu">
+              <span class="cmu-tour-hamburger" aria-hidden="true"><span></span><span></span><span></span></span>
+            </button>
+          </header>
 
           <div class="slideshow-container">
             ${slides.map((src, index) => `
