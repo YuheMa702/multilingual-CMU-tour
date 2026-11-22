@@ -5,6 +5,7 @@ import {
   getLanguageLabel,
   getLanguageCodes as getMetadataLanguageCodes,
   getStopName,
+  getImageAlt,
   getUiText,
   TOUR_STOPS
 } from "./content-manifest.js";
@@ -229,7 +230,7 @@ function buildMainMarkup(view, lang) {
               <div class="mySlides fade ${index === 0 ? "showing" : ""}" data-index="${index}">
                 <div class="numbertext">${index + 1} / ${slides.length}</div>
                 ${src
-                  ? `<img src="${escapeHtml(src)}" alt="${escapeHtml(ui.slideLabel)} ${index + 1}">`
+                  ? `<img src="${escapeHtml(src)}" alt="${escapeHtml(getImageAlt(src, lang, ui.slideLabel + ' ' + (index + 1)))}">`
                   : `<div class="slide-placeholder">${escapeHtml(ui.noImageLabel)}</div>`}
               </div>
             `).join("")}
@@ -299,7 +300,7 @@ function buildMainMarkup(view, lang) {
               ${storyCards.map((card) => `
               <button class="story-card-link ${card.id === view.activeCardId ? "selected" : ""}" type="button" data-story-id="${escapeHtml(card.id)}" data-route="${escapeHtml(card.route)}">
                 ${card.thumbnail
-                  ? `<img class="storyImg" src="${escapeHtml(card.thumbnail)}" alt="${escapeHtml(card.title)}">`
+                  ? `<img class="storyImg" src="${escapeHtml(card.thumbnail)}" alt="${escapeHtml(getImageAlt(card.thumbnail, lang, card.title))}">`
                   : `<div class="storyImg story-placeholder"></div>`}
                 <span class="story-card-caption">${escapeHtml(card.title)}</span>
                 ${card.id !== "intro" && card.speaker ? `<span class="story-card-subcaption">${escapeHtml(card.speaker)}</span>` : ""}

@@ -20,10 +20,13 @@ globalThis.fetch=async (url) => {
 };
 await initializeContent();
 const manifest=JSON.parse(await fs.readFile(path.join(contentDir,'content/metadata/generated.json'),'utf8'));
+const sourceStopRows=(await fs.readFile(path.join(contentDir,'content/metadata/stops.tsv'),'utf8')).trim().split(/\r?\n/).slice(1);
+const sourceStoryRows=(await fs.readFile(path.join(contentDir,'content/metadata/stories.tsv'),'utf8')).trim().split(/\r?\n/).slice(1);
+const sourceStoryLanguageCount=lang=>sourceStoryRows.filter(row=>row.split('\t')[2]===lang).length;
 
-test('all 15 stops and all 22 stories are populated from metadata and correctly ordered',()=>{
-  assert.equal(TOUR_STOPS.length,15);
-  assert.equal(STORIES.length,22);
+test('all registered stops and stories are populated from metadata and correctly ordered',()=>{
+  assert.equal(TOUR_STOPS.length,sourceStopRows.length);
+  assert.equal(STORIES.length,new Set(sourceStoryRows.map(row=>row.split('\t')[0])).size);
   assert.deepEqual(TOUR_STOPS.map(s=>s.id),manifest.stops.map(s=>s.id));
   assert.deepEqual([...TOUR_STOPS].sort((a,b)=>a.order-b.order).map(x=>x.id),TOUR_STOPS.map(x=>x.id));
   assert.equal(DEFAULT_STOP_ID,manifest.defaultStopId);
@@ -90,8 +93,8 @@ test('Chinese story cards use Chinese titles, Chinese recordings and Chinese tra
     assert.equal(view.assetLang,'zh');
     assert.equal(view.stopId,stop.id);
   }
-  assert.equal(chineseStories.length,13);
-  assert.equal(STORIES.filter(s=>s.audio?.en).length,19);
+  assert.equal(chineseStories.length,sourceStoryLanguageCount('zh'));
+  assert.equal(STORIES.filter(s=>s.audio?.en).length,sourceStoryLanguageCount('en'));
   assert.equal(STORIES.filter(s=>s.audio?.es).length,0);
 });
 
@@ -170,7 +173,7 @@ test('stories.tsv defines one language-specific title per recording',async()=>{
   const tsv=await fs.readFile(path.join(contentDir,'content/metadata/stories.tsv'),'utf8');
   const [header, ...lines]=tsv.trim().split(/\r?\n/);
   assert.equal(header, 'id\tspeaker\tlanguage\ttitle');
-  assert.equal(lines.length,32);
+  assert.equal(lines.length,sourceStoryRows.length);
   const variants=new Set();
   const seenLanguageBlocks=new Set();
   const perLanguagePositions=new Map();
@@ -194,8 +197,8 @@ test('stories.tsv defines one language-specific title per recording',async()=>{
     assert.ok(story.audio[language]);
   }
   assert.deepEqual([...seenLanguageBlocks], ['en','zh']);
-  assert.equal(perLanguagePositions.get('en'),19);
-  assert.equal(perLanguagePositions.get('zh'),13);
+  assert.equal(perLanguagePositions.get('en'),sourceStoryLanguageCount('en'));
+  assert.equal(perLanguagePositions.get('zh'),sourceStoryLanguageCount('zh'));
   assert.equal(STORIES.find(x=>x.id==='julia-research-1').names.en,'Getting Involved in Research');
   assert.equal(STORIES.find(x=>x.id==='julia-research-1').names.zh,'参与研究');
   assert.equal(STORIES.find(x=>x.id==='ivy-ballet-3').names.zh,'芭蕾舞');

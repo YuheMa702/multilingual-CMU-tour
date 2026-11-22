@@ -29,7 +29,7 @@ public/
         └── validation-report.txt  # Generated automatically; DO NOT edit
 ```
 
-**Only three files are routinely edited by hand:** `stops.tsv`, `stories.tsv`, and `ui.json`. Audio, transcripts, and images are managed by adding, replacing, renaming, or deleting files in their respective folders.
+**Metadata contributors normally edit these files by hand:** `stops.tsv`, `stories.tsv`, and `ui.json`. Audio, transcripts, and images are managed by adding, replacing, renaming, or deleting files in their respective folders.
 
 ## 2. Understand the filenames first
 
@@ -351,3 +351,20 @@ If the validator prints **ERROR**, fix the issue before publishing. If it prints
 ---
 
 **Simple rule to remember:** **ID in metadata = ID in filename. Language in `stories.tsv` = language in the story's audio filename. Stop order = numeric `order`; story order = row order within its language block.**
+
+
+## 10. Accessible image descriptions (alt text)
+
+The November 2026 content refresh adds `public/content/metadata/image-alt.json`.
+Its `images` object maps normalized photo **filenames** (not original upload names)
+to descriptions in each enabled language, for example:
+
+```json
+{"schemaVersion":1,"images":{"stop--gates--001.jpg":{"en":"Gates building exterior","zh":"Gates 大楼外观"}}}
+```
+
+The app loads this JSON independently of generated.json and falls back to its
+existing generic image labels for photographs without entries. When adding or
+renaming a photo, update its entry in `image-alt.json` as well. The original
+November 2026 alt-text spreadsheet is included as a reference in the update ZIP.
+Keep the JSON structure valid and use the actual installed, normalized filename.
