@@ -1,3 +1,5 @@
+// RESOURCES PAGE INTEGRATION
+import {RESOURCES_ROUTE} from './resources.js';
 import {DEFAULT_STOP_ID, buildMainRoute, getLanguageCodes} from './content-manifest.js';
 import {isValidStop, isValidStory} from './content-service.js';
 import {render} from './render.js';
@@ -20,6 +22,10 @@ function applyRoute() {
   if (!state.lang && route !== 'lang') return redirect('#/lang');
   if (route === 'lang' || route === 'onboarding') {
     state.route = {name: route, stopId:null, storyId:'intro'}; return;
+  }
+  if (route === 'resources') {
+    if (location.hash !== RESOURCES_ROUTE) return redirect(RESOURCES_ROUTE);
+    state.route = {name:'resources',stopId:null,storyId:'intro'}; return;
   }
   if (route === 'main') {
     const candidateStopId = decodeSafe(parts[1] || DEFAULT_STOP_ID);

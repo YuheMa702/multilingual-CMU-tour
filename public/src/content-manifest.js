@@ -1,3 +1,5 @@
+// RESOURCES PAGE INTEGRATION
+import {loadResources} from './resources.js';
 // Generated content is the single source of truth. No stop or story list is hardcoded here.
 export const DEFAULT_LANG = 'en';
 export let DEFAULT_STOP_ID = '';
@@ -8,6 +10,7 @@ export let STORY_INDEX = Object.create(null);
 export let LANGUAGES = {};
 export let UI_TEXT = {};
 export let IMAGE_ALTS = {};
+export let RESOURCES = null;
 let initialized = false;
 
 export async function initializeContent() {
@@ -39,6 +42,7 @@ export async function initializeContent() {
   LANGUAGES = data.languages;
   UI_TEXT = data.ui;
   IMAGE_ALTS = altData.images;
+  RESOURCES = await loadResources();
   initialized = true;
 }
 

@@ -1,0 +1,220 @@
+{
+  "schemaVersion": 1,
+  "title": {
+    "en": "Resources and Next Steps",
+    "zh": "资源与后续指南"
+  },
+  "menuLabel": {
+    "en": "Resources and Next Steps",
+    "zh": "资源与后续指南"
+  },
+  "featuredHeading": {
+    "en": "Not sure where to start?",
+    "zh": "不知道从哪里开始？"
+  },
+  "categoriesHeading": {
+    "en": "Explore more resources",
+    "zh": "探索更多资源"
+  },
+  "newTabLabel": {
+    "en": "opens in a new tab",
+    "zh": "在新标签页中打开"
+  },
+  "hero": {
+    "src": "./content/resources/stop--resources--001.jpg",
+    "alt": {
+      "en": "Students crossing a green lawn and walkway in front of Hamerschlag Hall on Carnegie Mellon’s campus.",
+      "zh": "卡内基梅隆大学校园内，学生走过 Hamerschlag Hall 前的草坪和步道。"
+    }
+  },
+  "featured": [
+    {
+      "linkId": "cost-aid",
+      "icon": "cost",
+      "label": {
+        "en": "How much does CMU cost?",
+        "zh": "在 CMU 就读需要多少钱？"
+      }
+    },
+    {
+      "linkId": "majors-programs",
+      "icon": "academics",
+      "label": {
+        "en": "What can I study?",
+        "zh": "我可以选择哪些专业？"
+      }
+    },
+    {
+      "linkId": "housing",
+      "icon": "housing",
+      "label": {
+        "en": "Where will I live?",
+        "zh": "我将住在哪里？"
+      }
+    }
+  ],
+  "categories": [
+    {
+      "id": "admissions",
+      "icon": "cost",
+      "label": {
+        "en": "Admissions & Financial Aid",
+        "zh": "本科招生与经济资助"
+      },
+      "links": [
+        {
+          "id": "undergraduate-admissions",
+          "label": {
+            "en": "Undergraduate Admissions",
+            "zh": "本科招生"
+          },
+          "url": "https://www.cmu.edu/admission/"
+        },
+        {
+          "id": "cost-aid",
+          "label": {
+            "en": "Cost and Aid",
+            "zh": "学费与资助"
+          },
+          "url": "https://www.cmu.edu/admission/costs-aid"
+        },
+        {
+          "id": "financial-aid",
+          "label": {
+            "en": "Financial Aid",
+            "zh": "经济资助"
+          },
+          "url": "https://www.cmu.edu/sfs/financial-aid/"
+        }
+      ]
+    },
+    {
+      "id": "academics",
+      "icon": "academics",
+      "label": {
+        "en": "Academics",
+        "zh": "学术与专业"
+      },
+      "links": [
+        {
+          "id": "majors-programs",
+          "label": {
+            "en": "Majors and Programs at CMU",
+            "zh": "CMU 专业与学术项目"
+          },
+          "url": "https://www.cmu.edu/admission/majors-programs"
+        },
+        {
+          "id": "program-finder",
+          "label": {
+            "en": "Undergraduate Program Finder",
+            "zh": "本科专业查询"
+          },
+          "url": "https://www.cmu.edu/admission/majors-programs/undergraduate-program-finder"
+        }
+      ]
+    },
+    {
+      "id": "campus-life",
+      "icon": "housing",
+      "label": {
+        "en": "Living on Campus",
+        "zh": "校园生活"
+      },
+      "links": [
+        {
+          "id": "housing",
+          "label": {
+            "en": "On-Campus Housing",
+            "zh": "校内住宿"
+          },
+          "url": "https://www.cmu.edu/housing/"
+        },
+        {
+          "id": "dining",
+          "label": {
+            "en": "Campus Dining",
+            "zh": "校园餐饮"
+          },
+          "url": "https://www.cmu.edu/dining/"
+        },
+        {
+          "id": "sports",
+          "label": {
+            "en": "Recreational Sports",
+            "zh": "休闲体育活动"
+          },
+          "url": "https://athletics.cmu.edu/recreation/index"
+        }
+      ]
+    },
+    {
+      "id": "community",
+      "icon": "community",
+      "label": {
+        "en": "Community & Support",
+        "zh": "校园社区与支持"
+      },
+      "links": [
+        {
+          "id": "diversity",
+          "label": {
+            "en": "The Center for Student Diversity and Inclusion",
+            "zh": "学生多元化与包容中心"
+          },
+          "url": "https://www.cmu.edu/student-diversity/index.html"
+        },
+        {
+          "id": "international",
+          "label": {
+            "en": "Office of International Education",
+            "zh": "国际教育办公室"
+          },
+          "url": "https://www.cmu.edu/oie/"
+        },
+        {
+          "id": "campus-life",
+          "label": {
+            "en": "Campus Life",
+            "zh": "校园生活概览"
+          },
+          "url": "https://www.cmu.edu/campus-life"
+        },
+        {
+          "id": "student-support",
+          "label": {
+            "en": "Student Support Resources",
+            "zh": "学生支持资源"
+          },
+          "url": "https://www.cmu.edu/wellbeing/resources/student-support-resources.html"
+        }
+      ]
+    },
+    {
+      "id": "visiting",
+      "icon": "visiting",
+      "label": {
+        "en": "Visiting CMU",
+        "zh": "参观 CMU"
+      },
+      "links": [
+        {
+          "id": "visit",
+          "label": {
+            "en": "Visit CMU",
+            "zh": "参观 CMU"
+          },
+          "url": "https://www.cmu.edu/visit/campus-tours"
+        },
+        {
+          "id": "visitor-info",
+          "label": {
+            "en": "Visitor Information",
+            "zh": "访客信息"
+          },
+          "url": "https://www.cmu.edu/visit/visitor-information"
+        }
+      ]
+    }
+  ]
+}
