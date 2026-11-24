@@ -1,0 +1,412 @@
+{
+  "schemaVersion": 1,
+  "images": {
+    "stop--cfa--001.jpg": {
+      "en": "Close view of an arched entrance to the College of Fine Arts, with a sign mounted beside the doorway.",
+      "zh": "美术学院拱形入口的特写镜头，门旁悬挂着一块招牌。"
+    },
+    "stop--cfa--002.webp": {
+      "en": "Front view of the College of Fine Arts, a historic stone building with repeated arches and large windows.",
+      "zh": "美术学院的外观，这是一座历史悠久的石砌建筑，拥有成排的拱门和大窗户。"
+    },
+    "stop--cfa--003.jpg": {
+      "en": "Side view of the College of Fine Arts building, with a pale stone facade, arched windows, and a tree-lined lawn.",
+      "zh": "美术学院大楼的侧面视图，其外墙为浅色石材，配有拱形窗户，周围是绿树成荫的草坪。"
+    },
+    "stop--cfa--004.jpg": {
+      "en": "Inside of the College of fine arts, looking upward through the ornate vaulted interior ceiling with decorative panels and arches.",
+      "zh": "在美术学院内，抬头仰望装饰华丽的拱顶天花板，上面布满了装饰面板和拱形结构。"
+    },
+    "stop--cfa--005.jpg": {
+      "en": "Close view of a tall carved stone archway at the College of Fine Arts entrance.",
+      "zh": "美术学院入口处一座高大的雕花石拱门的特写。"
+    },
+    "stop--closing-remarks--001.jpg": {
+      "en": "View through a stone archway toward the campus lawn, paths, trees and academic buildings.",
+      "zh": "透过石砌拱门望向校园草坪、步道、树木和教学楼。"
+    },
+    "stop--fence--001.jpg": {
+      "en": "View of the Fence that is painted green with white lettering that says\"Our Power, Our planet\" for Earth day.",
+      "zh": "这道围栏被漆成了绿色，上面用白色字体写着“我们的力量，我们的地球”，以庆祝地球日。"
+    },
+    "stop--fence--002.jpg": {
+      "en": "View of the Fence that is painted blue with red lettering that says\"We're so happy you're here\"",
+      "zh": "一堵涂成蓝色的围栏，上面用红色字体写着“很高兴你来这里”"
+    },
+    "stop--gates--001.jpg": {
+      "en": "Exterior of the modern Gates and Hillman Centers, showing connected multi-story buildings and landscaped grounds.",
+      "zh": "现代化的Gates and Hillman中心的外观，展示了相互连通的多层建筑和景观优美的场地。"
+    },
+    "stop--gates--002.jpg": {
+      "en": "Recessed entrance to the Gates and Hillman Centers beneath a metal-and-glass canopy, with a concrete wall and bicycle parking nearby.",
+      "zh": "Gates and Hillman中心的入口位于一个金属与玻璃构成的顶棚之下，呈内凹式设计，附近有一面混凝土墙和自行车停放处。"
+    },
+    "stop--gates--003.jpg": {
+      "en": "Study lounge inside the Gates and Hillman Centers with floor-to-ceiling windows, tables, chairs, indoor plants, and people working or walking through the space.",
+      "zh": "Gates and Hillman中心内的自习室，配有落地窗、桌椅、室内植物，还有人们在其中工作或穿行。"
+    },
+    "stop--gates--004.jpg": {
+      "en": "Gates and Hillman Centers exterior in winter, surrounded by snow-covered trees and landscaping.",
+      "zh": "Gates and Hillman中心冬季的外观，周围环绕着白雪覆盖的树木和景观绿化。"
+    },
+    "stop--gates--005.jpg": {
+      "en": "Night view of the modern Gates and Hillman Centers with illuminated windows and the colorfully illuminated Randy Pausch Memorial Bridge.",
+      "zh": "现代化的Gates and Hillman中心的夜景，窗户亮着灯，兰迪·鲍什纪念桥则被五彩斑斓的灯光照亮。"
+    },
+    "stop--hamerschlag--001.jpg": {
+      "en": "Exterior of Hamerschlag Hall, showing its historic stone facade, arched entrance, and round tower.",
+      "zh": "Hamerschlag Hall 的外观，展现了其历史悠久的石砌立面、拱形入口和圆形塔楼。"
+    },
+    "stop--hamerschlag--002.jpg": {
+      "en": "Front view of Hamerschlag Hall, a historic stone building with a central arched entrance and broad steps.",
+      "zh": "Hamerschlag Hall 的正面视图，这是一座历史悠久的石砌建筑，中央设有拱形入口和宽阔的台阶。"
+    },
+    "stop--hamerschlag--003.jpg": {
+      "en": "Tiered lecture hall in Hamerschlag with rows of seats facing multiple blackboards and a lectern.",
+      "zh": "哈默施拉格（Hamerschlag）的阶梯式教室内，一排排座椅面向多块黑板和讲台。"
+    },
+    "stop--highmark--001.jpg": {
+      "en": "Highmark Center exterior with large windows, plantings and a paved entrance plaza.",
+      "zh": "Highmark 中心外观，可见宽大的玻璃窗、绿化植物和铺砌的入口广场。"
+    },
+    "stop--highmark--002.jpg": {
+      "en": "Outdoor tennis courts near the Highmark Center, with academic buildings in the background.",
+      "zh": "Highmark 中心附近的室外网球场，背景为教学楼。"
+    },
+    "stop--highmark--003.jpg": {
+      "en": "Exterior of the Highmark Center for Health, Wellness and Athletics, with a long modern facade and landscaped walkway.",
+      "zh": "Highmark 健康中心的外部景观，拥有长长的现代风格立面和景观步道。"
+    },
+    "stop--highmark--004.jpg": {
+      "en": "Highmark Wellness Center's indoor basketball court with a red-and-white playing surface, hoops, and a high ceiling.",
+      "zh": "Highmark 健康中心的室内篮球场，球场地面为红白相间，配有篮筐，且层高较高。"
+    },
+    "stop--inside-stever--001.jpg": {
+      "en": "Student lounge inside Stever House with a pool table, wall-mounted television, seating, and large windows.",
+      "zh": "Stever House（宿舍）内的学生休息室，内设台球桌、壁挂式电视、座椅和落地窗。"
+    },
+    "stop--inside-stever--002.jpg": {
+      "en": "View of the Stever House lounge showing a pool table, wood floor, television, and green chairs.",
+      "zh": "Stever House（宿舍）休息室的景象，可见一张台球桌、木地板、电视机和绿色椅子。"
+    },
+    "stop--mao-yisheng--001.jpg": {
+      "en": "Close-up view of the bronze Mao Yisheng statue, in a suit raising one hand against a stone building facade.",
+      "zh": "茅以升青铜像特写：身着西装，单手举起，以石砌建筑外墙为背景。"
+    },
+    "stop--mao-yisheng--002.jpg": {
+      "en": "View of Mao Yisheng statue in Baker Hall's courtyard beside a stone academic building.",
+      "zh": "Baker Hall 院中的茅以升雕像与旁边的石砌教学楼。"
+    },
+    "stop--mao-yisheng--003.jpg": {
+      "en": "Black-and-white photograph of three men in suits, with Mao Yisheng holding an award in the center.",
+      "zh": "三位身穿西装的男士的黑白合影，居中的茅以升手捧奖项。"
+    },
+    "stop--mao-yisheng--004.jpg": {
+      "en": "Exterior of Baker Hall, a historic stone academic building with a large arched entrance and trees along the front.",
+      "zh": "Baker Hall的外观，这是一座历史悠久的石砌教学楼，拥有一个巨大的拱形入口，正门两侧绿树成荫。"
+    },
+    "stop--mao-yisheng--005.jpg": {
+      "en": "Guastavino staircase inside Baker Hall with interlocking terracotta tiles arranged in a herringbone pattern.",
+      "zh": "Baker Hall 内的 Guastavino 楼梯，赤陶砖以人字形交错排列。"
+    },
+    "stop--mao-yisheng--006.jpg": {
+      "en": "Courtyard beside Baker Hall with the stone building facade, lawn, mature trees, and benches.",
+      "zh": "Baker Hall旁的一处庭院，可见石砌建筑外墙、草坪、参天古树和长椅。"
+    },
+    "stop--model-room-stever--001.jpg": {
+      "en": "Model residence room with two stripped single beds, desks, chairs, and a window.",
+      "zh": "样板居室，内有两张未铺床单的单人床、书桌、椅子和一扇窗户。"
+    },
+    "stop--model-room-stever--002.jpg": {
+      "en": "Model double occupancy residence room, with two made beds, desks, chairs, and storage furniture.",
+      "zh": "双人住宿房间样板间，内设两张已铺好的床、书桌、椅子和储物家具。"
+    },
+    "stop--model-room-stever--003.jpg": {
+      "en": "Model dorm room showing tall storage cabinets for students to store their clothes. ",
+      "zh": "学生宿舍样板间，展示了供学生存放衣物的高柜。"
+    },
+    "stop--outside-stever--001.jpg": {
+      "en": "Stever House sign beside a glass entrance door, with a bicycle parked nearby.",
+      "zh": "Stever House的招牌矗立在玻璃入口门旁，附近停着一辆自行车。"
+    },
+    "stop--outside-stever--002.jpg": {
+      "en": "Street-level view of the Stever House entrance, windows, and bicycle racks.",
+      "zh": "Stever House （宿舍）入口、窗户和自行车架的街景视图。"
+    },
+    "stop--outside-stever--003.jpg": {
+      "en": "Wide exterior view of Stever House, a multi-story brick-and-stone residence building with a tall glass stairwell.",
+      "zh": "Stever House （宿舍）的广角外景图，这是一栋多层砖石结构的住宅楼，内设一座高大的玻璃楼梯间。"
+    },
+    "stop--scotty-statue--001.jpg": {
+      "en": "Bronze Scottish terrier campus statue, Scotty Dog, wearing a bright red scarf, seated on a stone pedestal.",
+      "zh": "一尊青铜材质的苏格兰梗校园雕像，名为“Scotty Dog”，系着一条鲜红的围巾，端坐于石质基座上。"
+    },
+    "stop--scotty-statue--002.jpg": {
+      "en": "Bronze Scottish terrier statue, Scotty Dog, seated on a round stone pedestal in the Merson courtyard.",
+      "zh": "一尊苏格兰梗青铜雕像（名为Scotty Dog），坐落在Merson庭院内一个圆形的石基座上。"
+    },
+    "stop--scotty-statue--003.jpg": {
+      "en": "Side profile of the bronze Scottish terrier statue, Scotty dog, on a pedestal outside of the Cohen University Center, with pedestrians and an entrance behind it.",
+      "zh": "Cohen大学中心外基座上那尊苏格兰梗（名为Scotty Dog）青铜雕像的侧面轮廓，其身后可见行人及入口。"
+    },
+    "stop--tartan-introductions--001.jpg": {
+      "en": "View through a stone archway toward the campus lawn, paths, trees and academic buildings.",
+      "zh": "透过石砌拱门望向校园草坪、步道、树木和教学楼。"
+    },
+    "stop--tepper-stop--001.webp": {
+      "en": "Multi-level interior atrium in Tepper with curved balconies, glass railings, and an open central space.",
+      "zh": "泰珀大楼内设有多层中庭，配有弧形阳台、玻璃栏杆和开放式中央空间。"
+    },
+    "stop--tepper-stop--002.jpg": {
+      "en": "Wide view across the Tepper building atrium with sweeping curved balconies, a glass roof, and large windows.",
+      "zh": "泰珀大楼中庭的全景视野，可见弧形延伸的阳台、玻璃屋顶和宽大的窗户。"
+    },
+    "stop--tepper-stop--003.jpg": {
+      "en": "Looking into the bright Tepper atrium, with curved balcony levels and people in the central area.",
+      "zh": "眺望明亮的泰珀中庭，曲线形的露台层层叠叠，中央区域人来人往。"
+    },
+    "stop--tepper-stop--004.jpg": {
+      "en": "Exterior of the David A. Tepper Quadrangle, with the modern building behind a green lawn and a stone sign.",
+      "zh": "David A. Tepper四合院的外景，绿茵茵的草坪和石制标牌后方矗立着一栋现代建筑。"
+    },
+    "stop--tepper-stop--005.jpg": {
+      "en": "Interior view of the Tepper building showing curved balconies, glass railings, and people moving through the atrium.",
+      "zh": "泰珀大楼的内部景象，可见弧形阳台、玻璃栏杆以及在中庭穿行的人群。"
+    },
+    "stop--tepper-stop--006.jpg": {
+      "en": "High-angle view of the Tepper atrium with curved balconies and tables and chairs on the lower level.",
+      "zh": "泰珀中庭的高角度俯瞰图，可见其弧形阳台以及下层摆放的桌椅。"
+    },
+    "stop--wean--001.jpg": {
+      "en": "Warmly lit study space in Sorells Library, with curved wood-slat walls and ceiling, tables, and people seated along the corridor.",
+      "zh": "Sorrells图书馆内一处光线温暖的学习区，墙壁和天花板均采用弧形木条设计，走廊两侧摆放着桌子，人们沿走廊而坐。"
+    },
+    "stop--wean--002.jpg": {
+      "en": "Entrance to the Sorrells Library with glass doors set into a teal wall and the library name displayed.",
+      "zh": "Sorrells图书馆的入口处，青绿色墙面上嵌有玻璃门，并标有图书馆名称。"
+    },
+    "stop--wean--003.jpg": {
+      "en": "Sorrells Libary interior study area with long curved wooden desks and students seated with laptops.",
+      "zh": "Sorrells图书馆内的自习区，摆放着长长的弧形木桌，学生们坐在桌前使用笔记本电脑。"
+    },
+    "stop--welcome-center--001.jpg": {
+      "en": "Bright Coulter Welcome Center lobby with a reception area, colorful lounge chairs, wall graphics, and large windows.",
+      "zh": "Coulter欢迎中心的大厅内设有接待区、色彩缤纷的休闲椅、墙面装饰画以及大面积的落地窗。"
+    },
+    "stop--welcome-center--002.jpg": {
+      "en": "Coulter Welcome Center wall displaying a large collage of photographs beside a red information panel and lounge seating.",
+      "zh": "Coulter欢迎中心的墙上展示着一幅大型照片拼贴画，旁边是红色信息牌和休息区座椅。"
+    },
+    "stop--welcome-center--003.jpg": {
+      "en": "Tiered wooden seating steps inside the Coulter Welcome Center with red and gray cushions and a sculptural wall display.",
+      "zh": "Coulter欢迎中心内的阶梯式木质座椅，配有红灰相间的坐垫，以及一处雕塑风格的墙面展示。"
+    },
+    "story--eric-campus-din-2--en--001.png": {
+      "en": "Overhead view of a campus dining area in Newell-Simon with long communal tables, individual tables, and students seated throughout the room."
+    },
+    "story--eric-campus-din-2--en--002.jpg": {
+      "en": "Campus dining room in the Cohen University Center with tables and chairs, large windows, wall-mounted screens, and colorful wall graphics."
+    },
+    "story--eric-game-design-class-1--en--001.jpg": {
+      "en": "Students working at computers in a game design classroom."
+    },
+    "story--eric-game-design-class-1--en--002.jpg": {
+      "en": "Students seated at computer workstations in a dark game design lab with colorful wall decorations."
+    },
+    "story--eric-pgh-3--en--001.jpg": {
+      "en": "Visitors viewing a gallery wall filled with repeated red-and-white pop-art prints by CMU allum Andy Warhol."
+    },
+    "story--eric-pgh-3--en--002.jpg": {
+      "en": "Street scene in Pittsburgh with storefronts, pedestrians, and Steelers-themed signs."
+    },
+    "story--eric-res-life-2--en--001.jpg": {
+      "en": "Exterior of the multi-story campus residence building Scobell House with a brick facade and arched entrance."
+    },
+    "story--eric-res-life-2--en--002.jpeg": {
+      "en": "Residence room inside of Scobell Housewith a bed, desk, dresser, and doorway."
+    },
+    "story--eric-res-life-2--en--003.jpg": {
+      "en": "Close view of marshmallows roasting over a campfire."
+    },
+    "story--eric-stu-co-1--en--001.jpeg": {
+      "en": "Close view of a bowl of noodles with vegetables and other food."
+    },
+    "story--eric-tec-spark-1--en--001.png": {
+      "en": "Technology workshop area in TechSpark filled with worktables, tools, and equipment."
+    },
+    "story--eric-tec-spark-1--en--002.png": {
+      "en": "Woodworking or fabrication area in TechSpark with large worktables and equipment."
+    },
+    "story--eric-tec-spark-1--en--003.png": {
+      "en": "TechSpark workspace with machinery, workstations, and industrial equipment."
+    },
+    "story--eric-tec-spark-1--en--004.png": {
+      "en": "Busy TechSpark workshop with people gathered around tables and fabrication equipment."
+    },
+    "story--eric-tep-class-1--en--001.jpg": {
+      "en": "Bright modern atrium in Tepper with curved white balconies and students seated in an open area."
+    },
+    "story--eric-tep-class-1--en--002.webp": {
+      "en": "Multi-level interior of the Tepper building with curved balconies, glass railings, and people below."
+    },
+    "story--eric-tep-club-2--en--001.jpg": {
+      "en": "Students seated at desks listening during a club meeting."
+    },
+    "story--eric-tep-club-2--en--002.jpeg": {
+      "en": "MoneyTinks group meeting in a bright classroom with attendees seated around tables."
+    },
+    "story--eric-uc-gaming-room-2--en--001.jpg": {
+      "en": "Scotland Yard Game Room with a table-tennis table, lounge seating, and a dark ceiling with overhead lights."
+    },
+    "story--eric-uc-gaming-room-2--en--002.jpg": {
+      "en": "Scotland Yard Game Room with pool tables, wood flooring, and lounge seating."
+    },
+    "story--eric-uc-gaming-room-2--en--003.jpg": {
+      "en": "Scotland Yard Game Room with a foosball table and other recreation equipment."
+    },
+    "story--ivy-ballet-3--zh--001.jpg": {
+      "zh": "夜晚的贝尼德姆表演艺术中心，剧院入口灯火通明，海报宣传芭蕾舞剧《胡桃夹子》。"
+    },
+    "story--ivy-kennywood-3--zh--001.jpg": {
+      "zh": "肯尼伍德游乐园入口，黄色 Kennywood 标志悬挂在两座红砖柱之间，游客从下方经过。"
+    },
+    "story--ivy-on-campus-house-2--zh--001.jpeg": {
+      "zh": "校园活动中，一只穿红色胸背带的柴犬坐在瓦力造型的装置旁，身后是戴气球头饰的学生。"
+    },
+    "story--julia-classes-1--en--001.jpg": {
+      "en": "Students sitting and studying at tables beside floor-to-ceiling windows in the Gates and Hillman Centers for Computer Science."
+    },
+    "story--julia-classes-1--zh--001.jpg": {
+      "zh": "在Gates and Hillman计算机科学中心，学生们坐在落地窗旁的桌子旁学习。"
+    },
+    "story--julia-research-1--en--001.jpg": {
+      "en": "Colorful image of a glowing purple-and-pink nebula against a dark space background."
+    },
+    "story--julia-research-1--zh--001.jpg": {
+      "zh": "一张色彩斑斓的图像，展现了在深邃的太空背景前，一团闪烁着紫色和粉色光芒的星云。"
+    },
+    "story--julia-student-events-2--en--001.webp": {
+      "en": "Performers on a dark stage wearing flowing white costumes."
+    },
+    "story--julia-student-events-2--en--002.jpg": {
+      "en": "Group photo of students and faculty posing together on stage after Lunar New year event."
+    },
+    "story--julia-student-events-2--en--003.webp": {
+      "en": "Student model showing off a green and silver 2 piece dress, on stage under blue and purple lighting."
+    },
+    "story--julia-student-events-2--en--004.jpg": {
+      "en": "Student-faculty event called Midnight Breakfast where faculty are serving food to students at a table."
+    },
+    "story--julia-student-events-2--zh--001.webp": {
+      "zh": "在昏暗的舞台上，表演者身着飘逸的白色服装，沐浴在紫色的灯光下。"
+    },
+    "story--julia-student-events-2--zh--002.jpg": {
+      "zh": "农历新年活动结束后，师生们在舞台上合影留念。"
+    },
+    "story--julia-student-events-2--zh--003.webp": {
+      "zh": "一名学生模特身着绿色和银色的两件式连衣裙，在蓝紫色灯光映照下的舞台上展示造型。"
+    },
+    "story--julia-student-events-2--zh--004.jpg": {
+      "zh": "一项名为“午夜早餐”的师生联谊活动，活动中教师们围坐在餐桌旁为学生们分发食物。"
+    },
+    "story--sally-apple-picking-2--en--001.jpg": {
+      "en": "Apple tree heavy with ripe red apples."
+    },
+    "story--sally-apple-picking-2--en--002.jpg": {
+      "en": "Apple orchard with rows of trees and a grassy path between them."
+    },
+    "story--sally-apple-picking-2--zh--001.jpg": {
+      "zh": "苹果树上挂满了熟透的红苹果。"
+    },
+    "story--sally-apple-picking-2--zh--002.jpg": {
+      "zh": "一片苹果园，树木成行，树行之间有一条草径。"
+    },
+    "story--sally-study-abroad-2--en--001.jpg": {
+      "en": "Students sitting together on stone steps beside a river during a study abroad trip."
+    },
+    "story--sally-study-abroad-2--en--002.jpg": {
+      "en": "The Eiffel Tower rising above Paris on a clear day."
+    },
+    "story--sally-study-abroad-2--zh--001.jpg": {
+      "zh": "在一次留学旅行中，学生们坐在河边的石阶上，聚在一起。"
+    },
+    "story--sally-study-abroad-2--zh--002.jpg": {
+      "zh": "晴朗的日子里，埃菲尔铁塔耸立在巴黎上空。"
+    },
+    "story--sally-sws-club-2--en--001.jpg": {
+      "en": "Three women participating in a panel discussion in front of a projected presentation on being a woman in finance."
+    },
+    "story--sally-sws-club-2--en--002.jpg": {
+      "en": "Group of students gathered closely around a table during a Strong Women Securities club activity."
+    },
+    "story--sally-sws-club-2--en--003.jpg": {
+      "en": "Strong Women Securities students and guest speakers posing together indoors after the SWE's 2026 Stock Pitch Competition."
+    },
+    "story--sally-sws-club-2--zh--001.jpg": {
+      "zh": "三名女性正在参加一场小组讨论，身后投影着关于“女性在金融行业”的演示文稿"
+    },
+    "story--sally-sws-club-2--zh--002.jpg": {
+      "zh": "在Strong Women Securities社团的一次活动中，一群学生围坐在一张桌子旁，聚在一起。"
+    },
+    "story--sally-sws-club-2--zh--003.jpg": {
+      "zh": "Strong Women Securities社团的学员们与特邀演讲嘉宾在SWE 2026年股票推介大赛结束后，在室内合影留念。"
+    },
+    "story--sally-tep-mentorship-1--en--001.jpeg": {
+      "en": "Group of Protrek students posing outside on their trip to New York."
+    },
+    "story--sally-tep-mentorship-1--en--002.jpeg": {
+      "en": "Group of Protrek students posing outdoors in front of a blue and white mural."
+    },
+    "story--sally-tep-mentorship-1--en--003.jpeg": {
+      "en": "Panel discussion with several student speakers standing at the front of a room with a projector that reads Morgan Stanley."
+    },
+    "story--sally-tep-mentorship-1--zh--001.jpeg": {
+      "zh": "Protrek项目的一群学生在纽约之旅期间于户外合影"
+    },
+    "story--sally-tep-mentorship-1--zh--002.jpeg": {
+      "zh": "一群Protrek项目的学生在户外一幅蓝白相间的壁画前合影。"
+    },
+    "story--sally-tep-mentorship-1--zh--003.jpeg": {
+      "zh": "一场小组讨论会，几位学生发言者站在房间前方，投影幕上显示着“Morgan Stanely”的字样。"
+    },
+    "story--selina-dorms-forbes-beeler-2--zh--002.jpg": {
+      "zh": "现代校园宿舍楼的砖墙和玻璃幕墙，前方有带顶棚的入口、绿化庭院和户外座椅。"
+    },
+    "story--yuheng-classes-1--en--001.jpg": {
+      "en": "Small group of students and an instructor seated around a table in a classroom, discussing work with laptops and papers."
+    },
+    "story--yuheng-classes-1--en--002.jpg": {
+      "en": "Four students seated around a table, talking and working together with laptops and notebooks."
+    },
+    "story--yuheng-classes-1--zh--001.jpg": {
+      "zh": "教室里，一小群学生和一位老师围坐在一张桌子旁，一边用笔记本电脑和纸张处理作业，一边讨论学习内容。"
+    },
+    "story--yuheng-classes-1--zh--002.jpg": {
+      "zh": "四名学生围坐在一张桌子旁，一边交谈，一边用笔记本电脑和笔记本一起学习。"
+    },
+    "story--yuheng-pgh-3--en--001.jpg": {
+      "en": "Inside the Benedum theatre showcasing its decorated stage and ceiling."
+    },
+    "story--yuheng-pgh-3--en--002.jpg": {
+      "en": "Three penguins standing in falling snow at the Pittsburgh Aviary."
+    },
+    "story--yuheng-pgh-3--en--003.jpg": {
+      "en": "Gallery wall displaying CMU alum, Andy Warhol's famous pop-art portraits of Marlyn Monroe."
+    },
+    "story--yuheng-pgh-3--zh--001.jpg": {
+      "zh": "贝内杜姆剧院内部，其装饰精美的舞台和天花板一览无余。"
+    },
+    "story--yuheng-pgh-3--zh--002.jpg": {
+      "zh": "三只企鹅站在匹兹堡的美国国家鸟园飘落的雪中。"
+    },
+    "story--yuheng-pgh-3--zh--003.jpg": {
+      "zh": "画廊墙上展示着卡内基梅隆大学校友安迪·沃霍尔创作的、以玛丽莲·梦露为题材的著名波普艺术肖像画。"
+    },
+    "story--yuheng-research-1--en--001.jpg": {
+      "en": "Person writing notes beside a laptop, tablet, and papers on a desk."
+    },
+    "story--yuheng-research-1--zh--001.jpg": {
+      "zh": "一个人正坐在书桌前，旁边放着笔记本电脑、平板电脑和一些纸张，正在做笔记。"
+    }
+  }
+}

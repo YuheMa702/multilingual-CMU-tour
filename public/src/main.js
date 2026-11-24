@@ -1,3 +1,4 @@
+import {installAccessibility} from './accessibility.js';
 import { initializeContent } from "./content-manifest.js";
 import { initRouter } from "./router.js";
 import { render } from "./render.js";
@@ -27,6 +28,7 @@ async function boot() {
     prepareInitialRoute();
     initRouter();
     await render();
+    installAccessibility();
   } catch (error) {
     console.error("Could not initialize tour", error);
     const root = document.getElementById("app");
