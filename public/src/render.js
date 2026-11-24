@@ -1,3 +1,6 @@
+// RESOURCES PAGE INTEGRATION
+import {RESOURCES_ROUTE, resourceText, renderResourcesContent} from './resources.js';
+import {RESOURCES} from './content-manifest.js';
 import {
   DEFAULT_LANG,
   DEFAULT_STOP_ID,
@@ -20,11 +23,13 @@ export async function render() {
   const root = document.getElementById("app");
   const token = nextRenderToken();
   const route = state.route?.name || "lang";
+  document.documentElement.lang = state.lang || DEFAULT_LANG;
   const ui = getUiText(state.lang || DEFAULT_LANG);
 
   if (route === "lang") return renderLang(root);
   if (route === "onboarding") return renderOnboarding(root);
   if (route === "main") return renderMain(root, token);
+  if (route === "resources") return renderResources(root);
 
   root.innerHTML = `<div class="app-page centered-page"><div class="phone-shell"><div class="simple-card">${escapeHtml(ui.unknownRouteLabel)}</div></div></div>`;
 }
@@ -212,18 +217,12 @@ function buildMainMarkup(view, lang) {
   const title = view.viewKind === "story"
     ? view.viewTitle
     : (view.transcriptTitle || getStopName(view.stopId, lang));
-  const languageOptions = getOrderedLanguageCodes(lang);
 
   return `
     <div class="app-page centered-page detail-page-shell">
       <div class="phone-shell detail-shell">
         <div class="content-container" data-view-kind="${escapeHtml(view.viewKind)}" data-language="${escapeHtml(lang)}" data-stop-id="${escapeHtml(view.stopId)}">
-          <header class="cmu-tour-header" aria-label="Carnegie Mellon University">
-            <img class="cmu-tour-lettermark" src="./static/ui-assets/cmu-lettermark-r.png" alt="Carnegie Mellon University">
-            <button class="menu-btn cmu-tour-menu" id="menuBtn" type="button" aria-label="${escapeHtml(ui.menuAlt)}" aria-controls="sideMenu">
-              <span class="cmu-tour-hamburger" aria-hidden="true"><span></span><span></span><span></span></span>
-            </button>
-          </header>
+          ${buildHeaderMarkup(ui)}
 
           <div class="slideshow-container">
             ${slides.map((src, index) => `
@@ -310,6 +309,28 @@ function buildMainMarkup(view, lang) {
             <button class="stories-scroll-btn stories-scroll-btn-right" id="storiesScrollRightBtn" type="button" aria-label="${escapeHtml(ui.scrollStoriesRight)}">&#10095;</button>
           </div>
 
+          ${buildMenuMarkup(lang)}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function buildHeaderMarkup(ui) {
+  return `
+          <header class="cmu-tour-header" aria-label="Carnegie Mellon University">
+            <img class="cmu-tour-lettermark" src="./static/ui-assets/cmu-lettermark-r.png" alt="Carnegie Mellon University">
+            <button class="menu-btn cmu-tour-menu" id="menuBtn" type="button" aria-label="${escapeHtml(ui.menuAlt)}" aria-controls="sideMenu">
+              <span class="cmu-tour-hamburger" aria-hidden="true"><span></span><span></span><span></span></span>
+            </button>
+          </header>
+  `;
+}
+
+function buildMenuMarkup(lang) {
+  const ui = getUiText(lang);
+  const languageOptions = getOrderedLanguageCodes(lang);
+  return `
           <div id="sideMenu" class="side-menu">
             <div id="mainMenuView" class="menu-view active">
               <div class="side-menu-header">
@@ -323,6 +344,12 @@ function buildMainMarkup(view, lang) {
                     <span class="side-menu-title">${escapeHtml(getStopName(stop.id, lang))}</span>
                   </li>
                 `).join("")}
+                <li class="resource-menu-item">
+                  <button class="resource-menu-button" id="resourcesMenuBtn" type="button" ${state.route?.name === 'resources' ? 'aria-current="page"' : ''}>
+                    <span class="side-menu-num-circle">${getStops().length + 1}</span>
+                    <span class="side-menu-title">${escapeHtml(resourceText(RESOURCES.menuLabel, lang))}</span>
+                  </button>
+                </li>
               </ul>
               <div class="side-menu-footer" id="openSettingsBtn">
                 <span class="settings-gear">⚙</span>
@@ -359,10 +386,27 @@ function buildMainMarkup(view, lang) {
             </div>
           </div>
           <div id="sideMenuOverlay" class="side-menu-overlay"></div>
+  `;
+}
+
+function renderResources(root) {
+  const lang = state.lang || DEFAULT_LANG;
+  const ui = getUiText(lang);
+  // Preserve expanded categories when switching the UI language on this page.
+  const openCategoryIds = [...root.querySelectorAll('.resource-category[open]')]
+    .map(group => group.dataset.resourceCategory);
+  root.innerHTML = `
+    <div class="app-page centered-page detail-page-shell">
+      <div class="phone-shell detail-shell">
+        <div class="content-container" data-view-kind="resources" data-language="${escapeHtml(lang)}">
+          ${buildHeaderMarkup(ui)}
+          ${renderResourcesContent(RESOURCES, lang, openCategoryIds)}
+          ${buildMenuMarkup(lang)}
         </div>
       </div>
     </div>
   `;
+  bindMenuInteractions(root, {viewKind: 'resources'});
 }
 
 function bindMainInteractions(root, view, lang, preservedStoryCarousel = false) {
@@ -528,6 +572,10 @@ function bindMainInteractions(root, view, lang, preservedStoryCarousel = false) 
   function goToStopByOffset(delta) {
     if (currentStopIndex < 0) return;
     const nextIndex = currentStopIndex + delta;
+    if (nextIndex === stopList.length && delta > 0) {
+      location.hash = RESOURCES_ROUTE;
+      return;
+    }
     if (nextIndex < 0 || nextIndex >= stopList.length) return;
     location.hash = buildMainRoute(stopList[nextIndex].id, "intro");
   }
@@ -539,7 +587,7 @@ function bindMainInteractions(root, view, lang, preservedStoryCarousel = false) 
     previousStopBtn.addEventListener("click", () => goToStopByOffset(-1));
   }
   if (nextStopBtn) {
-    nextStopBtn.disabled = currentStopIndex >= stopList.length - 1;
+    nextStopBtn.disabled = currentStopIndex < 0;
     nextStopBtn.addEventListener("click", () => goToStopByOffset(1));
   }
 
@@ -590,6 +638,15 @@ function bindMainInteractions(root, view, lang, preservedStoryCarousel = false) 
     location.hash = buildMainRoute(view.stopId, "intro");
   });
 
+  bindMenuInteractions(root, view);
+
+  registerCleanup(() => {
+    audio.pause();
+    if (scrollTimeout) window.clearTimeout(scrollTimeout);
+  });
+}
+
+function bindMenuInteractions(root, view) {
   const sideMenu = root.querySelector("#sideMenu");
   const sideMenuOverlay = root.querySelector("#sideMenuOverlay");
   const mainMenuView = root.querySelector("#mainMenuView");
@@ -620,6 +677,11 @@ function bindMainInteractions(root, view, lang, preservedStoryCarousel = false) 
       closeMenu();
       if (targetStopId) location.hash = buildMainRoute(targetStopId, "intro");
     });
+  });
+
+  root.querySelector("#resourcesMenuBtn")?.addEventListener("click", () => {
+    closeMenu();
+    if (location.hash !== RESOURCES_ROUTE) location.hash = RESOURCES_ROUTE;
   });
 
   root.querySelector("#openSettingsBtn")?.addEventListener("click", () => {
@@ -660,10 +722,6 @@ function bindMainInteractions(root, view, lang, preservedStoryCarousel = false) 
     location.hash = "#/onboarding";
   });
 
-  registerCleanup(() => {
-    audio.pause();
-    if (scrollTimeout) window.clearTimeout(scrollTimeout);
-  });
 }
 
 function getLanguageCodes() {
