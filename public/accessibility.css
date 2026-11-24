@@ -1,0 +1,21 @@
+/* Preserve resting styles; show a strong focus indicator for keyboard users. */
+#app :is(button, a, select, input, [tabindex="0"], summary):focus-visible {
+  outline: 3px solid #C41230;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 2px white;
+}
+#app :is(.lyric-line-button, #lyricsToggleBtn, #lyricsScroll):focus-visible {
+  outline-color: #fff;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #192B4B;
+}
+#app .side-menu-list [role="button"]:focus-visible { outline-offset: -4px; }
+#app .dot:focus-visible { outline-offset: 4px; }
+#app [tabindex="-1"]:focus:not(:focus-visible) { outline: none; }
+@media (prefers-reduced-motion: reduce) {
+  #app *, #app *::before, #app *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

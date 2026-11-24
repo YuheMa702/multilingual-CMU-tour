@@ -21,6 +21,10 @@
       "en": "Close view of a tall carved stone archway at the College of Fine Arts entrance.",
       "zh": "美术学院入口处一座高大的雕花石拱门的特写。"
     },
+    "stop--closing-remarks--001.jpg": {
+      "en": "View through a stone archway toward the campus lawn, paths, trees and academic buildings.",
+      "zh": "透过石砌拱门望向校园草坪、步道、树木和教学楼。"
+    },
     "stop--fence--001.jpg": {
       "en": "View of the Fence that is painted green with white lettering that says\"Our Power, Our planet\" for Earth day.",
       "zh": "这道围栏被漆成了绿色，上面用白色字体写着“我们的力量，我们的地球”，以庆祝地球日。"
@@ -62,12 +66,12 @@
       "zh": "哈默施拉格（Hamerschlag）的阶梯式教室内，一排排座椅面向多块黑板和讲台。"
     },
     "stop--highmark--001.jpg": {
-      "en": "Exterior of the Highmark Welless Center with expansive glass windows, landscaped plantings, and a paved entrance plaza.",
-      "zh": "Hamerschlag Hall 的外部景观，拥有宽阔的玻璃窗、精心设计的绿化景观以及铺砌的入口广场。"
+      "en": "Highmark Center exterior with large windows, plantings and a paved entrance plaza.",
+      "zh": "Highmark 中心外观，可见宽大的玻璃窗、绿化植物和铺砌的入口广场。"
     },
     "stop--highmark--002.jpg": {
-      "en": "Recreation area next to Highmark Wellness center with outdoor tennis courts and academic buildings in the background.",
-      "zh": "Hamerschlag Hall 旁的一处休闲区，背景中可见室外网球场和教学楼。"
+      "en": "Outdoor tennis courts near the Highmark Center, with academic buildings in the background.",
+      "zh": "Highmark 中心附近的室外网球场，背景为教学楼。"
     },
     "stop--highmark--003.jpg": {
       "en": "Exterior of the Highmark Center for Health, Wellness and Athletics, with a long modern facade and landscaped walkway.",
@@ -94,16 +98,16 @@
       "zh": "Baker Hall 院中的茅以升雕像与旁边的石砌教学楼。"
     },
     "stop--mao-yisheng--003.jpg": {
-      "en": "Black-and-white portrait of Mao Yisheng wearing glasses, a suit, and a tie.",
-      "zh": "一张黑白肖像照，照片中茅以升戴着眼镜，身穿西装，系着领带。"
+      "en": "Black-and-white photograph of three men in suits, with Mao Yisheng holding an award in the center.",
+      "zh": "三位身穿西装的男士的黑白合影，居中的茅以升手捧奖项。"
     },
     "stop--mao-yisheng--004.jpg": {
       "en": "Exterior of Baker Hall, a historic stone academic building with a large arched entrance and trees along the front.",
       "zh": "Baker Hall的外观，这是一座历史悠久的石砌教学楼，拥有一个巨大的拱形入口，正门两侧绿树成荫。"
     },
     "stop--mao-yisheng--005.jpg": {
-      "en": "The Guastavino tile staircase inside Baker Hall, known for being a self-supporting, constructed with interlocking terracotta tiles in a herringbone pattern without reinforcing steel.",
-      "zh": "Baker Hall内的Guastavino瓷砖楼梯，以其自承式结构而闻名，该楼梯由相互咬合的赤陶砖以人字形图案铺砌而成，且未使用钢筋加固。"
+      "en": "Guastavino staircase inside Baker Hall with interlocking terracotta tiles arranged in a herringbone pattern.",
+      "zh": "Baker Hall 内的 Guastavino 楼梯，赤陶砖以人字形交错排列。"
     },
     "stop--mao-yisheng--006.jpg": {
       "en": "Courtyard beside Baker Hall with the stone building facade, lawn, mature trees, and benches.",
@@ -118,7 +122,7 @@
       "zh": "双人住宿房间样板间，内设两张已铺好的床、书桌、椅子和储物家具。"
     },
     "stop--model-room-stever--003.jpg": {
-      "en": "Model dorm room showing tall storage cabinets for students to store their clothes. ",
+      "en": "Model dorm room showing tall storage cabinets for students to store their clothes.",
       "zh": "学生宿舍样板间，展示了供学生存放衣物的高柜。"
     },
     "stop--outside-stever--001.jpg": {
@@ -144,6 +148,10 @@
     "stop--scotty-statue--003.jpg": {
       "en": "Side profile of the bronze Scottish terrier statue, Scotty dog, on a pedestal outside of the Cohen University Center, with pedestrians and an entrance behind it.",
       "zh": "Cohen大学中心外基座上那尊苏格兰梗（名为Scotty Dog）青铜雕像的侧面轮廓，其身后可见行人及入口。"
+    },
+    "stop--tartan-introductions--001.jpg": {
+      "en": "View through a stone archway toward the campus lawn, paths, trees and academic buildings.",
+      "zh": "透过石砌拱门望向校园草坪、步道、树木和教学楼。"
     },
     "stop--tepper-stop--001.webp": {
       "en": "Multi-level interior atrium in Tepper with curved balconies, glass railings, and an open central space.",
@@ -194,263 +202,228 @@
       "zh": "Coulter欢迎中心内的阶梯式木质座椅，配有红灰相间的坐垫，以及一处雕塑风格的墙面展示。"
     },
     "story--eric-campus-din-2--en--001.png": {
-      "en": "Overhead view of a campus dining area in Newell-Simon with long communal tables, individual tables, and students seated throughout the room.",
-      "zh": "Overhead view of a campus dining area in Newell-Simon with long communal tables, individual tables, and students seated throughout the room."
+      "en": "Overhead view of a campus dining area in Newell-Simon with long communal tables, individual tables, and students seated throughout the room."
     },
     "story--eric-campus-din-2--en--002.jpg": {
-      "en": "Campus dining room in the Cohen University Center with tables and chairs, large windows, wall-mounted screens, and colorful wall graphics.",
-      "zh": "Campus dining room in the Cohen University Center with tables and chairs, large windows, wall-mounted screens, and colorful wall graphics."
+      "en": "Campus dining room in the Cohen University Center with tables and chairs, large windows, wall-mounted screens, and colorful wall graphics."
     },
     "story--eric-game-design-class-1--en--001.jpg": {
-      "en": "Students working at computers in a game design classroom.",
-      "zh": "Students working at computers in a game design classroom."
+      "en": "Students working at computers in a game design classroom."
     },
     "story--eric-game-design-class-1--en--002.jpg": {
-      "en": "Students seated at computer workstations in a dark game design lab with colorful wall decorations.",
-      "zh": "Students seated at computer workstations in a dark game design lab with colorful wall decorations."
+      "en": "Students seated at computer workstations in a dark game design lab with colorful wall decorations."
     },
     "story--eric-pgh-3--en--001.jpg": {
-      "en": "Visitors viewing a gallery wall filled with repeated red-and-white pop-art prints by CMU allum Andy Warhol.",
-      "zh": "Visitors viewing a gallery wall filled with repeated red-and-white pop-art prints by CMU allum Andy Warhol."
+      "en": "Visitors viewing a gallery wall filled with repeated red-and-white pop-art prints by CMU allum Andy Warhol."
     },
     "story--eric-pgh-3--en--002.jpg": {
-      "en": "Street scene in Pittsburgh with storefronts, pedestrians, and Steelers-themed signs.",
-      "zh": "Street scene in Pittsburgh with storefronts, pedestrians, and Steelers-themed signs."
+      "en": "Street scene in Pittsburgh with storefronts, pedestrians, and Steelers-themed signs."
     },
     "story--eric-res-life-2--en--001.jpg": {
-      "en": "Exterior of the multi-story campus residence building Scobell House with a brick facade and arched entrance.",
-      "zh": "Exterior of the multi-story campus residence building Scobell House with a brick facade and arched entrance."
+      "en": "Exterior of the multi-story campus residence building Scobell House with a brick facade and arched entrance."
     },
     "story--eric-res-life-2--en--002.jpeg": {
-      "en": "Residence room inside of Scobell Housewith a bed, desk, dresser, and doorway.",
-      "zh": "Residence room inside of Scobell Housewith a bed, desk, dresser, and doorway."
+      "en": "Residence room inside of Scobell Housewith a bed, desk, dresser, and doorway."
     },
     "story--eric-res-life-2--en--003.jpg": {
-      "en": "Close view of marshmallows roasting over a campfire.",
-      "zh": "Close view of marshmallows roasting over a campfire."
+      "en": "Close view of marshmallows roasting over a campfire."
     },
     "story--eric-stu-co-1--en--001.jpeg": {
-      "en": "Close view of a bowl of noodles with vegetables and other food.",
-      "zh": "Close view of a bowl of noodles with vegetables and other food."
+      "en": "Close view of a bowl of noodles with vegetables and other food."
     },
     "story--eric-tec-spark-1--en--001.png": {
-      "en": "Technology workshop area in TechSpark filled with worktables, tools, and equipment.",
-      "zh": "Technology workshop area in TechSpark filled with worktables, tools, and equipment."
+      "en": "Technology workshop area in TechSpark filled with worktables, tools, and equipment."
     },
     "story--eric-tec-spark-1--en--002.png": {
-      "en": "Woodworking or fabrication area in TechSpark with large worktables and equipment.",
-      "zh": "Woodworking or fabrication area in TechSpark with large worktables and equipment."
+      "en": "Woodworking or fabrication area in TechSpark with large worktables and equipment."
     },
     "story--eric-tec-spark-1--en--003.png": {
-      "en": "TechSpark workspace with machinery, workstations, and industrial equipment.",
-      "zh": "TechSpark workspace with machinery, workstations, and industrial equipment."
+      "en": "TechSpark workspace with machinery, workstations, and industrial equipment."
     },
     "story--eric-tec-spark-1--en--004.png": {
-      "en": "Busy TechSpark workshop with people gathered around tables and fabrication equipment.",
-      "zh": "Busy TechSpark workshop with people gathered around tables and fabrication equipment."
+      "en": "Busy TechSpark workshop with people gathered around tables and fabrication equipment."
     },
     "story--eric-tep-class-1--en--001.jpg": {
-      "en": "Bright modern atrium in Tepper with curved white balconies and students seated in an open area.",
-      "zh": "Bright modern atrium in Tepper with curved white balconies and students seated in an open area."
+      "en": "Bright modern atrium in Tepper with curved white balconies and students seated in an open area."
     },
     "story--eric-tep-class-1--en--002.webp": {
-      "en": "Multi-level interior of the Tepper building with curved balconies, glass railings, and people below.",
-      "zh": "Multi-level interior of the Tepper building with curved balconies, glass railings, and people below."
+      "en": "Multi-level interior of the Tepper building with curved balconies, glass railings, and people below."
     },
     "story--eric-tep-club-2--en--001.jpg": {
-      "en": "Students seated at desks listening during a club meeting.",
-      "zh": "Students seated at desks listening during a club meeting."
+      "en": "Students seated at desks listening during a club meeting."
     },
     "story--eric-tep-club-2--en--002.jpeg": {
-      "en": "MoneyTinks group meeting in a bright classroom with attendees seated around tables.",
-      "zh": "MoneyTinks group meeting in a bright classroom with attendees seated around tables."
+      "en": "MoneyTinks group meeting in a bright classroom with attendees seated around tables."
     },
     "story--eric-uc-gaming-room-2--en--001.jpg": {
-      "en": "Scotland Yard Game Room with a table-tennis table, lounge seating, and a dark ceiling with overhead lights.",
-      "zh": "Scotland Yard Game Room with a table-tennis table, lounge seating, and a dark ceiling with overhead lights."
+      "en": "Scotland Yard Game Room with a table-tennis table, lounge seating, and a dark ceiling with overhead lights."
     },
     "story--eric-uc-gaming-room-2--en--002.jpg": {
-      "en": "Scotland Yard Game Room with pool tables, wood flooring, and lounge seating.",
-      "zh": "Scotland Yard Game Room with pool tables, wood flooring, and lounge seating."
+      "en": "Scotland Yard Game Room with pool tables, wood flooring, and lounge seating."
     },
     "story--eric-uc-gaming-room-2--en--003.jpg": {
-      "en": "Scotland Yard Game Room with a foosball table and other recreation equipment.",
-      "zh": "Scotland Yard Game Room with a foosball table and other recreation equipment."
+      "en": "Scotland Yard Game Room with a foosball table and other recreation equipment."
+    },
+    "story--ivy-ballet-3--zh--001.jpg": {
+      "zh": "夜晚的贝尼德姆表演艺术中心，剧院入口灯火通明，海报宣传芭蕾舞剧《胡桃夹子》。"
+    },
+    "story--ivy-kennywood-3--zh--001.jpg": {
+      "zh": "肯尼伍德游乐园入口，黄色 Kennywood 标志悬挂在两座红砖柱之间，游客从下方经过。"
+    },
+    "story--ivy-on-campus-house-2--zh--001.jpeg": {
+      "zh": "校园活动中，一只穿红色胸背带的柴犬坐在瓦力造型的装置旁，身后是戴气球头饰的学生。"
     },
     "story--julia-classes-1--en--001.jpg": {
-      "en": "Students sitting and studying at tables beside floor-to-ceiling windows in the Gates and Hillman Centers for Computer Science.",
-      "zh": "Students sitting and studying at tables beside floor-to-ceiling windows in the Gates and Hillman Centers for Computer Science."
+      "en": "Students sitting and studying at tables beside floor-to-ceiling windows in the Gates and Hillman Centers for Computer Science."
     },
     "story--julia-classes-1--zh--001.jpg": {
-      "en": "Students sitting and studying at tables beside floor-to-ceiling windows in the Gates and Hillman Centers for Computer Science.",
       "zh": "在Gates and Hillman计算机科学中心，学生们坐在落地窗旁的桌子旁学习。"
     },
     "story--julia-research-1--en--001.jpg": {
-      "en": "Colorful image of a glowing purple-and-pink nebula against a dark space background.",
-      "zh": "Colorful image of a glowing purple-and-pink nebula against a dark space background."
+      "en": "Colorful image of a glowing purple-and-pink nebula against a dark space background."
     },
     "story--julia-research-1--zh--001.jpg": {
-      "en": "Colorful image of a glowing purple-and-pink nebula against a dark space background.",
       "zh": "一张色彩斑斓的图像，展现了在深邃的太空背景前，一团闪烁着紫色和粉色光芒的星云。"
     },
     "story--julia-student-events-2--en--001.webp": {
-      "en": "Performers on a dark stage wearing flowing white costumes.",
-      "zh": "Performers on a dark stage wearing flowing white costumes."
+      "en": "Performers on a dark stage wearing flowing white costumes."
     },
     "story--julia-student-events-2--en--002.jpg": {
-      "en": "Group photo of students and faculty posing together on stage after Lunar New year event.",
-      "zh": "Group photo of students and faculty posing together on stage after Lunar New year event."
+      "en": "Group photo of students and faculty posing together on stage after Lunar New year event."
     },
     "story--julia-student-events-2--en--003.webp": {
-      "en": "Student model showing off a green and silver 2 piece dress, on stage under blue and purple lighting.",
-      "zh": "Student model showing off a green and silver 2 piece dress, on stage under blue and purple lighting."
+      "en": "Student model showing off a green and silver 2 piece dress, on stage under blue and purple lighting."
     },
     "story--julia-student-events-2--en--004.jpg": {
-      "en": "Student-faculty event called Midnight Breakfast where faculty are serving food to students at a table.",
-      "zh": "Student-faculty event called Midnight Breakfast where faculty are serving food to students at a table."
+      "en": "Student-faculty event called Midnight Breakfast where faculty are serving food to students at a table."
     },
     "story--julia-student-events-2--zh--001.webp": {
-      "en": "Performers on a dark stage wearing flowing white costumes under purple lights.",
       "zh": "在昏暗的舞台上，表演者身着飘逸的白色服装，沐浴在紫色的灯光下。"
     },
     "story--julia-student-events-2--zh--002.jpg": {
-      "en": "Group photo of students and faculty posing together on stage after Lunar New year event.",
       "zh": "农历新年活动结束后，师生们在舞台上合影留念。"
     },
     "story--julia-student-events-2--zh--003.webp": {
-      "en": "Student model showing off a green and silver 2 piece dress, on stage under blue and purple lighting.",
       "zh": "一名学生模特身着绿色和银色的两件式连衣裙，在蓝紫色灯光映照下的舞台上展示造型。"
     },
     "story--julia-student-events-2--zh--004.jpg": {
-      "en": "Student-faculty event called Midnight Breakfast where faculty are serving food to students at a table.",
       "zh": "一项名为“午夜早餐”的师生联谊活动，活动中教师们围坐在餐桌旁为学生们分发食物。"
     },
+    "story--lizzie-being-ta-for-hci-class-1--en--001.png": {
+      "en": "An instructor gestures while speaking to students seated at tables with laptops in a classroom with whiteboards and orange walls."
+    },
+    "story--lizzie-game-creation-society-club-2--en--001.webp": {
+      "en": "Students gather around a table with laptops, watching as one student works on a screen."
+    },
+    "story--lizzie-painting-the-fence-2--en--001.webp": {
+      "en": "The Fence is painted white with the red and black words “Information Networking Institute” and “My heart is in the network,” in front of a glass campus building."
+    },
     "story--sally-apple-picking-2--en--001.jpg": {
-      "en": "Apple tree heavy with ripe red apples.",
-      "zh": "Apple tree heavy with ripe red apples."
+      "en": "Apple tree heavy with ripe red apples."
     },
     "story--sally-apple-picking-2--en--002.jpg": {
-      "en": "Apple orchard with rows of trees and a grassy path between them.",
-      "zh": "Apple orchard with rows of trees and a grassy path between them."
+      "en": "Apple orchard with rows of trees and a grassy path between them."
     },
     "story--sally-apple-picking-2--zh--001.jpg": {
-      "en": "Apple tree heavy with ripe red apples.",
       "zh": "苹果树上挂满了熟透的红苹果。"
     },
     "story--sally-apple-picking-2--zh--002.jpg": {
-      "en": "Apple orchard with rows of trees and a grassy path between them.",
       "zh": "一片苹果园，树木成行，树行之间有一条草径。"
     },
     "story--sally-study-abroad-2--en--001.jpg": {
-      "en": "Students sitting together on stone steps beside a river during a study abroad trip.",
-      "zh": "Students sitting together on stone steps beside a river during a study abroad trip."
+      "en": "Students sitting together on stone steps beside a river during a study abroad trip."
     },
     "story--sally-study-abroad-2--en--002.jpg": {
-      "en": "The Eiffel Tower rising above Paris on a clear day.",
-      "zh": "The Eiffel Tower rising above Paris on a clear day."
+      "en": "The Eiffel Tower rising above Paris on a clear day."
     },
     "story--sally-study-abroad-2--zh--001.jpg": {
-      "en": "Students sitting together on stone steps beside a river during a study abroad trip.",
       "zh": "在一次留学旅行中，学生们坐在河边的石阶上，聚在一起。"
     },
     "story--sally-study-abroad-2--zh--002.jpg": {
-      "en": "The Eiffel Tower rising above Paris on a clear day.",
       "zh": "晴朗的日子里，埃菲尔铁塔耸立在巴黎上空。"
     },
     "story--sally-sws-club-2--en--001.jpg": {
-      "en": "Three women participating in a panel discussion in front of a projected presentation on being a woman in finance.",
-      "zh": "Three women participating in a panel discussion in front of a projected presentation on being a woman in finance."
+      "en": "Three women participating in a panel discussion in front of a projected presentation on being a woman in finance."
     },
     "story--sally-sws-club-2--en--002.jpg": {
-      "en": "Group of students gathered closely around a table during a Strong Women Securities club activity.",
-      "zh": "Group of students gathered closely around a table during a Strong Women Securities club activity."
+      "en": "Group of students gathered closely around a table during a Strong Women Securities club activity."
     },
     "story--sally-sws-club-2--en--003.jpg": {
-      "en": "Strong Women Securities students and guest speakers posing together indoors after the SWE's 2026 Stock Pitch Competition.",
-      "zh": "Strong Women Securities students and guest speakers posing together indoors after the SWE's 2026 Stock Pitch Competition."
+      "en": "Strong Women Securities students and guest speakers posing together indoors after the SWE's 2026 Stock Pitch Competition."
     },
     "story--sally-sws-club-2--zh--001.jpg": {
-      "en": "Three women participating in a panel discussion in front of a projected presentation on being a woman in finance",
       "zh": "三名女性正在参加一场小组讨论，身后投影着关于“女性在金融行业”的演示文稿"
     },
     "story--sally-sws-club-2--zh--002.jpg": {
-      "en": "Group of students gathered closely around a table during a Strong Women Securities club activity.",
       "zh": "在Strong Women Securities社团的一次活动中，一群学生围坐在一张桌子旁，聚在一起。"
     },
     "story--sally-sws-club-2--zh--003.jpg": {
-      "en": "Strong Women Securities students and guest speakers posing together indoors after the SWE's 2026 Stock Pitch Competition.",
       "zh": "Strong Women Securities社团的学员们与特邀演讲嘉宾在SWE 2026年股票推介大赛结束后，在室内合影留念。"
     },
     "story--sally-tep-mentorship-1--en--001.jpeg": {
-      "en": "Group of Protrek students posing outside on their trip to New York.",
-      "zh": "Group of Protrek students posing outside on their trip to New York."
+      "en": "Group of Protrek students posing outside on their trip to New York."
     },
     "story--sally-tep-mentorship-1--en--002.jpeg": {
-      "en": "Group of Protrek students posing outdoors in front of a blue and white mural.",
-      "zh": "Group of Protrek students posing outdoors in front of a blue and white mural."
+      "en": "Group of Protrek students posing outdoors in front of a blue and white mural."
     },
     "story--sally-tep-mentorship-1--en--003.jpeg": {
-      "en": "Panel discussion with several student speakers standing at the front of a room with a projector that reads Morgan Stanley.",
-      "zh": "Panel discussion with several student speakers standing at the front of a room with a projector that reads Morgan Stanley."
+      "en": "Panel discussion with several student speakers standing at the front of a room with a projector that reads Morgan Stanley."
     },
     "story--sally-tep-mentorship-1--zh--001.jpeg": {
-      "en": "Group of Protrek students posing outside on their trip to New York",
       "zh": "Protrek项目的一群学生在纽约之旅期间于户外合影"
     },
     "story--sally-tep-mentorship-1--zh--002.jpeg": {
-      "en": "Group of Protrek students posing outdoors in front of a blue and white mural.",
       "zh": "一群Protrek项目的学生在户外一幅蓝白相间的壁画前合影。"
     },
     "story--sally-tep-mentorship-1--zh--003.jpeg": {
-      "en": "Panel discussion with several student speakers standing at the front of a room with a projector that reads Morgan Stanley.",
       "zh": "一场小组讨论会，几位学生发言者站在房间前方，投影幕上显示着“Morgan Stanely”的字样。"
     },
+    "story--selina-buggy-mechanic-2--en--001.jpg": {
+      "en": "Two runners race alongside a low, three-wheeled buggy, one pushing its handle while a helmeted driver lies inside."
+    },
+    "story--selina-class-acting-theatre-1--en--001.jpg": {
+      "en": "Actors in colorful period costumes perform on a theater stage with a striped tent, a raised platform and a geometric blue backdrop."
+    },
+    "story--selina-dorms-forbes-beeler-2--zh--001.jpg": {
+      "zh": "校园宿舍楼的砖墙与玻璃幕墙，前方有带顶棚的入口、绿化庭院和户外座椅。"
+    },
+    "story--selina-pgh-aviary-mattress-factory-3--en--001.jpg": {
+      "en": "A mannequin with curly hair and red polka dots stands among other mannequins reflected in a mirrored art installation."
+    },
     "story--yuheng-classes-1--en--001.jpg": {
-      "en": "Small group of students and an instructor seated around a table in a classroom, discussing work with laptops and papers.",
-      "zh": "Small group of students and an instructor seated around a table in a classroom, discussing work with laptops and papers."
+      "en": "Small group of students and an instructor seated around a table in a classroom, discussing work with laptops and papers."
     },
     "story--yuheng-classes-1--en--002.jpg": {
-      "en": "Four students seated around a table, talking and working together with laptops and notebooks.",
-      "zh": "Four students seated around a table, talking and working together with laptops and notebooks."
+      "en": "Four students seated around a table, talking and working together with laptops and notebooks."
     },
     "story--yuheng-classes-1--zh--001.jpg": {
-      "en": "Small group of students and an instructor seated around a table in a classroom, discussing work with laptops and papers.",
       "zh": "教室里，一小群学生和一位老师围坐在一张桌子旁，一边用笔记本电脑和纸张处理作业，一边讨论学习内容。"
     },
     "story--yuheng-classes-1--zh--002.jpg": {
-      "en": "Four students seated around a table, talking and working together with laptops and notebooks.",
       "zh": "四名学生围坐在一张桌子旁，一边交谈，一边用笔记本电脑和笔记本一起学习。"
     },
     "story--yuheng-pgh-3--en--001.jpg": {
-      "en": "Inside the Benedum theatre showcasing its decorated stage and ceiling.",
-      "zh": "Inside the Benedum theatre showcasing its decorated stage and ceiling."
+      "en": "Inside the Benedum theatre showcasing its decorated stage and ceiling."
     },
     "story--yuheng-pgh-3--en--002.jpg": {
-      "en": "Three penguins standing in falling snow at the Pittsburgh Aviary.",
-      "zh": "Three penguins standing in falling snow at the Pittsburgh Aviary."
+      "en": "Three penguins standing in falling snow at the Pittsburgh Aviary."
     },
     "story--yuheng-pgh-3--en--003.jpg": {
-      "en": "Gallery wall displaying CMU alum, Andy Warhol's famous pop-art portraits of Marlyn Monroe.",
-      "zh": "Gallery wall displaying CMU alum, Andy Warhol's famous pop-art portraits of Marlyn Monroe."
+      "en": "Gallery wall displaying CMU alum, Andy Warhol's famous pop-art portraits of Marlyn Monroe."
     },
     "story--yuheng-pgh-3--zh--001.jpg": {
-      "en": "Inside the Benedum theatre showcasing its decorated stage and ceiling.",
       "zh": "贝内杜姆剧院内部，其装饰精美的舞台和天花板一览无余。"
     },
     "story--yuheng-pgh-3--zh--002.jpg": {
-      "en": "Three penguins standing in falling snow at the Pittsburgh Aviary.",
       "zh": "三只企鹅站在匹兹堡的美国国家鸟园飘落的雪中。"
     },
     "story--yuheng-pgh-3--zh--003.jpg": {
-      "en": "Gallery wall displaying CMU alum, Andy Warhol's famous pop-art portraits of Marlyn Monroe.",
       "zh": "画廊墙上展示着卡内基梅隆大学校友安迪·沃霍尔创作的、以玛丽莲·梦露为题材的著名波普艺术肖像画。"
     },
     "story--yuheng-research-1--en--001.jpg": {
-      "en": "Person writing notes beside a laptop, tablet, and papers on a desk.",
-      "zh": "Person writing notes beside a laptop, tablet, and papers on a desk."
+      "en": "Person writing notes beside a laptop, tablet, and papers on a desk."
     },
     "story--yuheng-research-1--zh--001.jpg": {
-      "en": "Person writing notes beside a laptop, tablet, and papers on a desk.",
       "zh": "一个人正坐在书桌前，旁边放着笔记本电脑、平板电脑和一些纸张，正在做笔记。"
     }
   }

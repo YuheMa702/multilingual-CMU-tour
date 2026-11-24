@@ -460,6 +460,7 @@ function bindMainInteractions(root, view, lang, preservedStoryCarousel = false) 
     const isPaused = audio.paused;
     playIcon.style.display = isPaused ? "inline" : "none";
     pauseIcon.style.display = isPaused ? "none" : "inline";
+    root.querySelector("#playPauseBtn").setAttribute("aria-label", isPaused ? ui.playAlt : ui.pauseAlt);
   }
 
   // One presenter per audio view; the carousel remains independent.
@@ -495,12 +496,13 @@ function bindMainInteractions(root, view, lang, preservedStoryCarousel = false) 
     renderLyrics();
   }
 
-  playIcon.addEventListener("click", () => {
-    audio.play().catch(() => {});
-  });
-
-  pauseIcon.addEventListener("click", () => {
-    audio.pause();
+// ACCESSIBILITY UPDATE: keyboard player
+  const playPauseBtn = root.querySelector("#playPauseBtn");
+  playIcon.alt = "";
+  pauseIcon.alt = "";
+  playPauseBtn.addEventListener("click", () => {
+    if (audio.paused) audio.play().catch(() => {});
+    else audio.pause();
   });
 
   audio.addEventListener("play", syncPlayPauseIcon);

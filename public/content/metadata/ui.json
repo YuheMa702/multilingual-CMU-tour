@@ -75,7 +75,12 @@
       "pauseIllustrationAlt": "Pause",
       "studentStoryAlt": "Student story",
       "scrollStoriesLeft": "Scroll stories left",
-      "scrollStoriesRight": "Scroll stories right"
+      "scrollStoriesRight": "Scroll stories right",
+      "previousImageAria": "Previous image",
+      "nextImageAria": "Next image",
+      "audioProgressAria": "Audio playback position",
+      "collapseTranscriptAria": "Collapse transcript",
+      "transcriptAria": "Audio transcript"
     },
     "zh": {
       "guidedTourLabel": "校园导览",
@@ -122,7 +127,12 @@
       "pauseIllustrationAlt": "暂停",
       "studentStoryAlt": "学生故事",
       "scrollStoriesLeft": "向左浏览学生故事",
-      "scrollStoriesRight": "向右浏览学生故事"
+      "scrollStoriesRight": "向右浏览学生故事",
+      "previousImageAria": "上一张图片",
+      "nextImageAria": "下一张图片",
+      "audioProgressAria": "音频播放进度",
+      "collapseTranscriptAria": "收起字幕",
+      "transcriptAria": "音频字幕"
     },
     "es": {
       "guidedTourLabel": "Recorrido Guiado",
@@ -169,7 +179,12 @@
       "pauseIllustrationAlt": "Pausa",
       "studentStoryAlt": "Historia estudiantil",
       "scrollStoriesLeft": "Ver historias anteriores",
-      "scrollStoriesRight": "Ver historias siguientes"
+      "scrollStoriesRight": "Ver historias siguientes",
+      "previousImageAria": "Imagen anterior",
+      "nextImageAria": "Imagen siguiente",
+      "audioProgressAria": "Posición de reproducción del audio",
+      "collapseTranscriptAria": "Contraer transcripción",
+      "transcriptAria": "Transcripción del audio"
     }
   },
   "defaultStopId": "welcome-center"
