@@ -15,11 +15,11 @@
 }
 .resources-body { padding: 16px 20px 32px; }
 .resources-body h1 {
-  font-size: clamp(24px, 5.5vw, 30px);
+  font-size: clamp(32px, 7.5vw, 38px);
   color: var(--resource-red);
   font-weight: 700;
   line-height: 1.25;
-  margin: 0 0 24px;
+  margin: 0 0 12px;
   overflow-wrap: anywhere;
 }
 .resources-section + .resources-section { margin-top: 25px; }
